@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div style={styles.container}>
             <div style={styles.text}>
-                Created by Aleksander Helgaker.<br/>
+                Created by <a href="https://aleksanderhelgaker.dev" style={styles.link}>Aleksander Helgaker</a>.<br/>
                 This website is a hobby project, and is in no way affiliated with Spotify or Classic Rock Magazine.
             </div>
         </div>
@@ -24,7 +24,11 @@ const styles = {
 
     text: {
         marginLeft: '25px',
-        lineHeight: '1.4',
+        lineHeight: '1.6',
+    },
+
+    link: {
+        color: 'white',
     }
 }
 

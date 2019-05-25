@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {authEndpoint, clientId, redirectUri, scopes} from "../../global_constants/spotify";
+import { authEndpoint, redirectUri, scopes } from '../../global_constants/spotify';
+import { clientId } from '../../global_constants/secrets';
 import logo from '../../assets/logo.svg';
 
 // Get the hash of the url
