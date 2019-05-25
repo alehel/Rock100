@@ -62,8 +62,6 @@ const styles = {
     },
 
     content: {
-        maxWidth: '1400px',
-
         '@media only screen and (min-width: 1400px)': {
             flex: 1,
             display: 'flex',
@@ -81,10 +79,6 @@ const styles = {
     },
 
     albumArt: {
-        '@media only screen and (min-width: 1400px)': {
-            maxWidth: '50%',
-        },
-
         maxWidth: '100%',
         margin: '30px auto',
         display: 'block',
