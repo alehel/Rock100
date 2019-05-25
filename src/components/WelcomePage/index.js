@@ -12,21 +12,20 @@ function WelcomePage() {
             <div style={styles.container}>
                 <h1 style={styles.title}>Top 100 Rock Albums of All Time</h1>
                 <div style={styles.content}>
-                    <div style={{...styles.box, ...styles.albumBox}}>
-                        <img src={albumCompilationImage} alt="" style={styles.albumCompilation}/>
-                    </div>
-                    <div style={{...styles.box, ...styles.textBox}}>
-                        <p>This website is based off of Classic Rock magazines list of top 100 rock albums of all time.
+                    <img src={albumCompilationImage} alt="" style={styles.albumArt}/>
+                    <div style={styles.text}>
+                        <p>This website is based off of Classic Rock magazines list of top 100 rock
+                            albums of all time.
                             Using your Spotify Premium account you can listen to and read about all of these legendary
                             albums.*</p>
                         <p>A Spotify Premium account is required to use this site.</p>
-                        <a
-                            style={styles.spotifyLink}
-                            className="btn btn--loginApp-link"
-                            href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`}
-                        >
-                            Login using Spotify
-                        </a>
+                        <p style={styles.linkContainer}>
+                            <a style={styles.link}
+                               href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`}>
+                                Login using Spotify
+                            </a>
+                        </p>
+
                     </div>
                 </div>
 
@@ -38,58 +37,63 @@ function WelcomePage() {
 
 const styles = {
     container: {
-        display: 'flex',
-        flexDirection: 'column',
         flex: 1,
+
+        // Background image
         backgroundImage: 'url("' + backgroundImage + '")',
         backgroundSize: 'cover',
         backgroundPosition: 'center, center',
         boxShadow: 'inset 0 0 0 1000px rgba(0,0,0,.75)',
-        fontSize: '1.3rem',
-        lineHeight: '1.4'
+
+        '@media only screen and (min-width: 800px)': {
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'column',
+        }
     },
 
     title: {
-        textAlign: 'center',
-        fontSize: '3em',
         color: 'white',
-        marginBottom: 0,
+        textAlign: 'center',
+        '@media only screen and (min-width: 800px)': {
+            fontSize: '3rem',
+            marginBottom: 0,
+        }
     },
 
     content: {
-        flex: 1,
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        '@media only screen and (min-width: 800px)': {
+            flex: 1,
+            display: 'flex',
+            margin: '0 5rem',
+            alignItems: 'center',
+        }
     },
 
-    box: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
+    text: {
         color: 'white',
+        textAlign: 'center',
+        lineHeight: '1.6rem',
+        fontSize: '1.2rem',
+        margin: '1.2rem'
     },
 
-    albumBox: {
-        marginLeft: '20px',
-        flex: 1,
+    albumArt: {
+        maxWidth: '100%',
+        margin: '30px auto',
+        display: 'block',
     },
 
-    textBox: {
-        marginRight: '40px',
-        flex: 1,
+    linkContainer: {
+        marginTop: '50px',
     },
 
-    spotifyLink: {
-        marginTop: '30px',
-        textDecoration: 'none',
-        backgroundColor: '#1DB954',
+    link: {
         borderRadius: '15px',
-        padding: '15px 30px',
+        padding: '10px 25px',
+        backgroundColor: '#1DB954',
+        textDecoration: 'none',
         color: 'white',
-        fontSize: '1.4rem',
     }
 };
 

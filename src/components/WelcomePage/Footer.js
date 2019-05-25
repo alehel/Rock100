@@ -22,8 +22,9 @@ const styles = {
     },
 
     text: {
-        marginLeft: '25px',
-        lineHeight: '1.6',
+        marginLeft: '1.2rem',
+        lineHeight: '1.2rem',
+        fontSize: '0.8rem',
     },
 
     link: {

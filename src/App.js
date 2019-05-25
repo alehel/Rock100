@@ -1,12 +1,16 @@
 import React from 'react';
 import LandingPage from "./components/LandingPage";
 import { THEME_PRIMARY_COLOR } from "./global_constants/style";
+import { StyleRoot } from 'radium';
 
 function App() {
     return (
-        <div style={style}>
-            <LandingPage />
-        </div>
+        <StyleRoot>
+            <div style={style}>
+                <LandingPage />
+            </div>
+        </StyleRoot>
+
     );
 }
 
