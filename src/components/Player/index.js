@@ -51,12 +51,16 @@ class Player extends Component {
     }
 
     render() {
+        const progressBarWidth = {
+            width: (this.state.progress_ms * 100 / this.state.item.duration_ms) + '%'
+        };
+
         return (
             <div>
                 {this.state.ready && (
                     <>
                         <div className="now-playing__img">
-                            <img src={this.state.item.album.images[0].url}/>
+                            <img alt="Album cover art" src={this.state.item.album.images[0].url}/>
                         </div>
 
                         <div className="now-playing__side">
@@ -67,9 +71,9 @@ class Player extends Component {
                             <div className="now-playing__status">
                                 {this.state.is_playing ? "Playing" : "Paused"}
                             </div>
-                            <div className="progress">
+                            <div style={styles.progress}>
                                 <div
-                                    className="progress__bar"
+                                    style={{...styles.progressBar, ...progressBarWidth}}
                                 />
                             </div>
                         </div>
@@ -77,6 +81,20 @@ class Player extends Component {
                 )}
             </div>
         );
+    }
+}
+
+const styles = {
+    progress: {
+        border: '1px solid #eee',
+        height: '6px',
+        borderRadius: '3px',
+        overflow: 'hidden',
+    },
+
+    progressBar: {
+        backgroundColor: '#eee',
+        height: '4px',
     }
 }
 
