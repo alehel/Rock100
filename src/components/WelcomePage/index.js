@@ -45,7 +45,7 @@ const styles = {
         backgroundPosition: 'center, center',
         boxShadow: 'inset 0 0 0 1000px rgba(0,0,0,.75)',
 
-        '@media only screen and (min-width: 800px)': {
+        '@media only screen and (min-width: 1400px)': {
             display: 'flex',
             alignItems: 'center',
             flexDirection: 'column',
@@ -55,14 +55,16 @@ const styles = {
     title: {
         color: 'white',
         textAlign: 'center',
-        '@media only screen and (min-width: 800px)': {
+        '@media only screen and (min-width: 1400px)': {
             fontSize: '3rem',
             marginBottom: 0,
         }
     },
 
     content: {
-        '@media only screen and (min-width: 800px)': {
+        maxWidth: '1400px',
+
+        '@media only screen and (min-width: 1400px)': {
             flex: 1,
             display: 'flex',
             margin: '0 5rem',
@@ -79,6 +81,10 @@ const styles = {
     },
 
     albumArt: {
+        '@media only screen and (min-width: 1400px)': {
+            maxWidth: '50%',
+        },
+
         maxWidth: '100%',
         margin: '30px auto',
         display: 'block',
