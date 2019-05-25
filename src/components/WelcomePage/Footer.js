@@ -6,7 +6,7 @@ const Footer = () => {
         <div style={styles.container}>
             <div style={styles.text}>
                 Created by <a href="https://aleksanderhelgaker.dev" style={styles.link}>Aleksander Helgaker</a>.<br/>
-                This website is a hobby project, and is in no way affiliated with Spotify.
+                * This website is a hobby project, and is in no way affiliated with Spotify or Classic Rock magazine.
             </div>
         </div>
     );
