@@ -1,3 +1,12 @@
+
+# Rock 100
+## About
+Rock 100 is a web-app created using React and the Spotify API. It allows you to browse and listen to music from the "Top 100 Rock Albums" list created by Classic Rock Magazine. Please not that I am in no way affiliated with Spotify or Classic Rock Magazine. 
+
+## Spotify Client ID
+The web-app requires a spotify client id to run. The key I use is, for obvious reasons, not included in this repo. To run the code, you must create a file called *secrets.js* in the *global_constants* folder of the project. Within this file you must export a constant called *clientId*. Store your Spotify client id inn this constant, and the project should run.
+
+# React generated README
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
