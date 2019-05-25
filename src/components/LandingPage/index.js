@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import { authEndpoint, redirectUri, scopes } from '../../global_constants/spotify';
-import { clientId } from '../../global_constants/secrets';
+import {authEndpoint, redirectUri, scopes} from '../../global_constants/spotify';
+import {clientId} from '../../global_constants/secrets';
 import logo from '../../assets/logo.svg';
+import Player from "../Player";
 
 // Get the hash of the url
 const hash = window.location.hash
@@ -36,20 +37,26 @@ class LandingPage extends Component {
     }
 
     render() {
+        const token = this.state.token;
+
         return (
             <div style={styles.container}>
-                <img src={logo} className="App-logo" alt="logo" />
-                {!this.state.token && (
-                    <a
-                        style={styles.link}
-                        className="btn btn--loginApp-link"
-                        href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`}
-                    >
-                        Login to Spotify
-                    </a>
+                {!token && (
+                    <>
+                        <img src={logo} className="App-logo" alt="logo"/>
+                        <a
+                            style={styles.link}
+                            className="btn btn--loginApp-link"
+                            href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`}
+                        >
+                            Login to Spotify
+                        </a>
+                    </>
                 )}
-                {this.state.token && (
-                    <div>Player</div>
+                {token && (
+                    <Player
+                        token={token}
+                    />
                 )}
 
             </div>)
@@ -69,6 +76,6 @@ const styles = {
         margin: '20px',
         color: 'white'
     }
-}
+};
 
 export default LandingPage;
