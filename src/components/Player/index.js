@@ -56,9 +56,9 @@ class Player extends Component {
         };
 
         return (
-            <div>
+            <div style={styles.container}>
                 {this.state.ready && (
-                    <>
+                    <div>
                         <div className="now-playing__img">
                             <img alt="Album cover art" src={this.state.item.album.images[0].url}/>
                         </div>
@@ -77,7 +77,7 @@ class Player extends Component {
                                 />
                             </div>
                         </div>
-                    </>
+                    </div>
                 )}
             </div>
         );
@@ -85,6 +85,13 @@ class Player extends Component {
 }
 
 const styles = {
+    container: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        flex: 1,
+    },
     progress: {
         border: '1px solid #eee',
         height: '6px',

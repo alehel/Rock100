@@ -1,20 +1,6 @@
 import React, {Component} from 'react';
 import Player from "../Player";
-import {SpotifyLogin} from "./SpotifyLogin";
-
-// Get the hash of the url
-const hash = window.location.hash
-    .substring(1)
-    .split("&")
-    .reduce(function (initial, item) {
-        if (item) {
-            var parts = item.split("=");
-            initial[parts[0]] = decodeURIComponent(parts[1]);
-        }
-        return initial;
-    }, {});
-
-window.location.hash = "";
+import WelcomePage from "../WelcomePage";
 
 class LandingPage extends Component {
     constructor(props) {
@@ -22,11 +8,13 @@ class LandingPage extends Component {
 
         this.state = {
             token: null,
-        }
+        };
+
+        this.getTokenFromHash = this.getTokenFromHash.bind(this);
     }
 
     componentDidMount() {
-        const _token = hash.access_token;
+        const _token = this.getTokenFromHash();
         if (_token) {
             this.setState({
                 token: _token
@@ -34,24 +22,27 @@ class LandingPage extends Component {
         }
     }
 
+    getTokenFromHash() {
+        const hash = window.location.hash
+            .substring(1)
+            .split("&")
+            .reduce(function (initial, item) {
+                if (item) {
+                    var parts = item.split("=");
+                    initial[parts[0]] = decodeURIComponent(parts[1]);
+                }
+                return initial;
+            }, {}).access_token;
+
+        window.location.hash = "";
+        return hash;
+    }
+
     render() {
         const token = this.state.token;
 
-        return (
-            <div style={styles.container}>
-                {!token ? <SpotifyLogin/> : <Player token={token} />}
-            </div>)
+        return !token ? <WelcomePage/> : <Player token={token}/>
     }
 }
-
-const styles = {
-    container: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-    }
-};
 
 export default LandingPage;

@@ -1,10 +1,10 @@
 import React from 'react';
 import {THEME_SECONDARY_COLOR} from "../../global_constants/style";
 
-const HeaderBar = () => {
+const NavigationHeader = () => {
     return (
         <div style={styles.container}>
-            <h1 style={styles.title}>Rock Top 100</h1>
+            <h1 style={styles.title}>Top 100 Rock Albums</h1>
         </div>
     );
 };
@@ -16,12 +16,12 @@ const styles = {
         height: '100px',
         display: 'flex',
         alignItems: 'center',
-        marginBottom: '25px'
+        justifyContent: 'center',
     },
 
     title: {
-        marginLeft: '25px'
+        fontSize: '3rem',
     }
 }
 
-export default HeaderBar;
+export default NavigationHeader;

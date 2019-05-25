@@ -1,13 +1,13 @@
 import React from 'react';
 import LandingPage from "./components/LandingPage";
 import { THEME_PRIMARY_COLOR } from "./global_constants/style";
-import HeaderBar from "./components/Header";
+import NavigationHeader from "./components/NavigationHeader";
 import Footer from "./components/Footer";
 
 function App() {
     return (
-        <div className="App" style={style}>
-            <HeaderBar/>
+        <div style={style}>
+            <NavigationHeader/>
             <LandingPage />
             <Footer/>
         </div>
