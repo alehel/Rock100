@@ -29,6 +29,6 @@ const styles = {
     link: {
         color: 'white',
     }
-}
+};
 
 export default Footer;

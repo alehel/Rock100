@@ -4,27 +4,32 @@ import {authEndpoint, redirectUri, scopes} from "../../global_constants/spotify"
 import {clientId} from "../../global_constants/secrets";
 import backgroundImage from "../../assets/welcome.jpg";
 import Footer from "./Footer";
+import Radium from "radium";
 
-export default function WelcomePage() {
+function WelcomePage() {
     return (
         <>
             <div style={styles.container}>
-                <div style={styles.box}>
-                    <img src={albumCompilationImage} alt="" style={styles.albumCompilation}/>
+                <h1 style={styles.title}>Top 100 Rock Albums of All Time</h1>
+                <div style={styles.content}>
+                    <div style={{...styles.box, ...styles.albumBox}}>
+                        <img src={albumCompilationImage} alt="" style={styles.albumCompilation}/>
+                    </div>
+                    <div style={{...styles.box, ...styles.textBox}}>
+                        <p>This website is based off of Classic Rock magazines list of top 100 rock albums of all time.
+                            Using your Spotify Premium account you can listen to and read about all of these legendary
+                            albums.*</p>
+                        <p>A Spotify Premium account is required to use this site.</p>
+                        <a
+                            style={styles.spotifyLink}
+                            className="btn btn--loginApp-link"
+                            href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`}
+                        >
+                            Login using Spotify
+                        </a>
+                    </div>
                 </div>
-                <div style={styles.box}>
-                    <p>This website is based off of Classic Rock magazines list of top 100 rock albums of all time.
-                        Using your Spotify Premium account you can listen to and read about all of these legendary
-                        albums.*</p>
-                    <p>A Spotify Premium account is required to use this site.</p>
-                    <a
-                        style={styles.link}
-                        className="btn btn--loginApp-link"
-                        href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`}
-                    >
-                        Login using Spotify
-                    </a>
-                </div>
+
             </div>
             <Footer/>
         </>
@@ -34,10 +39,8 @@ export default function WelcomePage() {
 const styles = {
     container: {
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        flexDirection: 'column',
         flex: 1,
-
         backgroundImage: 'url("' + backgroundImage + '")',
         backgroundSize: 'cover',
         backgroundPosition: 'center, center',
@@ -46,15 +49,22 @@ const styles = {
         lineHeight: '1.4'
     },
 
-    albumCompilation: {
-        width: '85%',
-        marginLeft: '10%',
+    title: {
+        textAlign: 'center',
+        fontSize: '3em',
+        color: 'white',
+        marginBottom: 0,
+    },
+
+    content: {
+        flex: 1,
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
     box: {
-        marginRight: '100px',
-        marginLeft: '30px',
-        flex: 1,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -62,7 +72,17 @@ const styles = {
         color: 'white',
     },
 
-    link: {
+    albumBox: {
+        marginLeft: '20px',
+        flex: 1,
+    },
+
+    textBox: {
+        marginRight: '40px',
+        flex: 1,
+    },
+
+    spotifyLink: {
         marginTop: '30px',
         textDecoration: 'none',
         backgroundColor: '#1DB954',
@@ -72,3 +92,5 @@ const styles = {
         fontSize: '1.4rem',
     }
 };
+
+export default Radium(WelcomePage);
