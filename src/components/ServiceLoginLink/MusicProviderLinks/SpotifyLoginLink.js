@@ -1,7 +1,13 @@
 import React from 'react';
-import {authEndpoint, redirectUri, scopes} from "../../global_constants/spotify";
-import {clientId} from "../../global_constants/secrets";
 import Radium from "radium";
+
+import {clientId} from "../../../global_constants/secrets";
+export const authEndpoint = 'https://accounts.spotify.com/authorize';
+export const redirectUri = "http://localhost:3000";
+export const scopes = [
+    "user-read-currently-playing",
+    "user-read-playback-state",
+];
 
 function SpotifyLoginLink() {
     return (

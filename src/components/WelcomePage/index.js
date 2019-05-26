@@ -1,9 +1,9 @@
 import React from "react";
 import albumCompilationImage from '../../assets/album_compilation.png';
 import backgroundImage from "../../assets/welcome.jpg";
-import SpotifyLoginLink from '../ServiceLoginLink/SpotifyLoginLink';
 import Footer from "./Footer";
 import Radium from "radium";
+import ServiceLoginLink from "../ServiceLoginLink";
 
 
 function WelcomePage() {
@@ -19,7 +19,7 @@ function WelcomePage() {
                         Using your Spotify Premium account you can listen to and read about all of these legendary
                         albums.*</p>
                     <p>A Spotify Premium account is required to use this site.</p>
-                    <SpotifyLoginLink/>
+                    <ServiceLoginLink serviceProvider="Spotify"/>
 
                 </div>
             </div>
