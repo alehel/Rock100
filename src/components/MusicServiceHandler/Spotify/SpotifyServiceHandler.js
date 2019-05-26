@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import MusicPage from "../../MusicPage";
 
 class Player extends Component {
     constructor(props) {
@@ -35,16 +36,13 @@ class Player extends Component {
         }).then(response => {
             if (response.ok) {
                 response.json().then(json => {
-                    if (response.status === 200) {
-                        self.setState({
-                            item: json.item,
-                            is_playing: json.is_playing,
-                            progress_ms: json.progress_ms,
-                            ready: true,
-                        })
-                    } else {
-                        // handle error
-                    }
+                    console.log(json);
+                    self.setState({
+                        item: json.item,
+                        is_playing: json.is_playing,
+                        progress_ms: json.progress_ms,
+                        ready: true,
+                    })
                 })
             }
         })
@@ -55,31 +53,21 @@ class Player extends Component {
             width: (this.state.progress_ms * 100 / this.state.item.duration_ms) + '%'
         };
 
-        return (
-            <div style={styles.container}>
-                {this.state.ready && (
-                    <div>
-                        <div className="now-playing__img">
-                            <img alt="Album cover art" src={this.state.item.album.images[0].url}/>
-                        </div>
+        const item = this.state.item;
 
-                        <div className="now-playing__side">
-                            <div className="now-playing__name">{this.state.item.name}</div>
-                            <div className="now-playing__artist">
-                                {this.state.item.artists[0].name}
-                            </div>
-                            <div className="now-playing__status">
-                                {this.state.is_playing ? "Playing" : "Paused"}
-                            </div>
-                            <div style={styles.progress}>
-                                <div
-                                    style={{...styles.progressBar, ...progressBarWidth}}
-                                />
-                            </div>
-                        </div>
-                    </div>
+        return (
+            <>
+                {this.state.ready && (
+                    <MusicPage
+                        track={item.name}
+                        duration={item.duration_ms}
+                        position={item.position}
+                        artist={item.artists[0].name}
+                        album={item.album.name}
+                        albumArtUrl={item.album.images[0].url}/>
+
                 )}
-            </div>
+            </>
         );
     }
 }
@@ -103,6 +91,6 @@ const styles = {
         backgroundColor: '#eee',
         height: '4px',
     }
-}
+};
 
 export default Player;

@@ -33,7 +33,7 @@ class SpotifyTokenHandler extends Component {
                 return initial;
             }, {}).access_token;
 
-        window.location.hash = "";
+        //window.location.hash = "";
         return token;
     }
 
