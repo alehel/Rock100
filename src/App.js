@@ -1,13 +1,13 @@
 import React from 'react';
-import LandingPage from "./components/LandingPage";
-import { THEME_PRIMARY_COLOR } from "./global_constants/style";
-import { StyleRoot } from 'radium';
+import {THEME_PRIMARY_COLOR} from "./global_constants/style";
+import {StyleRoot} from 'radium';
+import AppRoutes from './AppRoutes';
 
 function App() {
     return (
         <StyleRoot>
             <div style={style}>
-                <LandingPage />
+                <AppRoutes/>
             </div>
         </StyleRoot>
 
@@ -19,6 +19,6 @@ const style = {
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100vh'
-}
+};
 
 export default App;

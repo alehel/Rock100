@@ -3,7 +3,7 @@ import Radium from "radium";
 
 import {clientId} from "../../../global_constants/secrets";
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
-export const redirectUri = "http://localhost:3000";
+export const redirectUri = "http://localhost:3000/spotify/";
 export const scopes = [
     "user-read-currently-playing",
     "user-read-playback-state",

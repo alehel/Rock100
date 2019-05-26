@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import Player from "../Player";
-import WelcomePage from "../WelcomePage";
+import SpotifyServiceHandler from "./SpotifyServiceHandler";
 
-class LandingPage extends Component {
+class SpotifyCallbackHandler extends Component {
     constructor(props) {
         super(props);
 
@@ -41,8 +40,8 @@ class LandingPage extends Component {
     render() {
         const token = this.state.token;
 
-        return !token ? <WelcomePage/> : <Player token={token}/>
+        return !token ? null : <SpotifyServiceHandler token={token}/>
     }
 }
 
-export default LandingPage;
+export default SpotifyCallbackHandler;
