@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import WelcomePage from './components/WelcomePage/';
-import Spotify from './components/MusicServiceHandler/Spotify/SpotifyCallbackHandler'
+import Spotify from './components/MusicServiceHandler/Spotify/SpotifyTokenHandler'
 import Error404Page from './components/Error404Page/';
 
 const AppRoutes = () => (

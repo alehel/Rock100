@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import SpotifyServiceHandler from "./SpotifyServiceHandler";
 
-class SpotifyCallbackHandler extends Component {
+class SpotifyTokenHandler extends Component {
     constructor(props) {
         super(props);
 
@@ -22,7 +22,7 @@ class SpotifyCallbackHandler extends Component {
     }
 
     getTokenFromHash() {
-        const hash = window.location.hash
+        const token = window.location.hash
             .substring(1)
             .split("&")
             .reduce(function (initial, item) {
@@ -34,7 +34,7 @@ class SpotifyCallbackHandler extends Component {
             }, {}).access_token;
 
         window.location.hash = "";
-        return hash;
+        return token;
     }
 
     render() {
@@ -44,4 +44,4 @@ class SpotifyCallbackHandler extends Component {
     }
 }
 
-export default SpotifyCallbackHandler;
+export default SpotifyTokenHandler;
