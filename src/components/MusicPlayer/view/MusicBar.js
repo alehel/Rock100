@@ -47,7 +47,7 @@ const styles = {
 
     expandIcon: {
         margin: 'auto',
-        height: '30%',
+        height: '50%',
         marginRight: '2rem',
         ':hover': {
             cursor: 'pointer',
