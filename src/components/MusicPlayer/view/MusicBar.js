@@ -1,14 +1,13 @@
-import React from 'react';
+import React, {Component} from 'react';
 import expandIcon from './../../../assets/expand.svg';
+import AlbumArt from './../../AlbumArt'
 import PropTypes from 'prop-types';
 import Radium from "radium";
 
 const MusicBar = ({artist, album, albumArtUrl, track, duration, position, openFullScreen}) => {
     return (
         <div style={styles.container}>
-            <div style={styles.albumArtContainer}>
-                <img src={albumArtUrl} alt="" style={styles.albumArt}/>
-            </div>
+            <AlbumArt src={albumArtUrl}/>
             <div style={styles.songDetails}>
                 <div>Artist: {artist}</div>
                 <div>Album: {album}</div>
@@ -33,15 +32,6 @@ const styles = {
         flexDirection: 'column',
         justifyContent: 'space-between',
         padding: '1.2rem  1rem',
-    },
-
-    albumArtContainer: {
-        height: '100%',
-        overflow: 'hidden',
-    },
-
-    albumArt: {
-        height: '100%',
     },
 
     control: {
