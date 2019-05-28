@@ -6,15 +6,16 @@ const FullScreen = ({artist, album, albumArtUrl, track, duration, position, disp
     const styles = {
         container: {
             position: 'fixed',
-            display: !display ? 'none' : 'initial',
-            top: 0,
-            left: 0,
             bottom: 0,
             right: 0,
             zIndex: 2,
             width: '100%',
-            height: '100%',
+            height: !display ? '0%' : '100%',
             backgroundColor: THEME_PRIMARY_COLOR,
+
+            transitionProperty: 'all',
+            transitionDuration: '0.4s',
+            transitionTimingFunction: 'linear'
         }
     };
 
