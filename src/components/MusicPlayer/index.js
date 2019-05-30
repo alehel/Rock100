@@ -17,7 +17,7 @@ const MusicPlayer = (props) => {
 MusicPlayer.propTypes = {
     artist: PropTypes.string.isRequired,
     album: PropTypes.string.isRequired,
-    albumArt: PropTypes.string.isRequired,
+    albumArt: PropTypes.string,
     track: PropTypes.string.isRequired,
 };
 

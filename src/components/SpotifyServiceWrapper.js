@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import MusicPage from "./MusicPage";
-const Spotify = require('spotify-web-api-js');
 
 class Player extends Component {
-    spotifyApi = new Spotify();
-
     constructor(props) {
         super(props);
 
@@ -15,41 +12,82 @@ class Player extends Component {
                 albumName: "",
                 albumArt: undefined
             },
+            paused: true,
+            deviceId: "",
             ready: false,
         };
 
-        this.spotifyApi.setAccessToken(this.props.token);
-        this.getCurrentlyPlaying = this.getCurrentlyPlaying.bind(this);
+        this.playerCheckInterval = null;
+    }
+
+    checkForPlayer() {
+
+        if (window.Spotify !== null) {
+            clearInterval(this.playerCheckInterval);
+            this.player = new window.Spotify.Player({
+                name: "Rock 100",
+                getOAuthToken: cb => { cb(this.props.token); },
+            });
+
+            this.createEventHandlers();
+
+            this.player.connect();
+        }
+    }
+
+    createEventHandlers() {
+        this.player.on('initialization_error', e => this.onInitializationError(e));
+        this.player.on('authentication_error', e => this.onAccountError(e));
+        this.player.on('account_error', e => this.onAccountError(e));
+        this.player.on('playback_error', e => this.onPlaybackError(e));
+        this.player.on('player_state_changed', state => this.onPlayerStateChanged(state));
+        this.player.on('ready', data => this.onReady(data));
+    }
+
+    onInitializationError(e) {
+        console.error(e);
+    }
+
+    onAuthenticationError(e) {
+        // not logged inn
+        console.error(e);
+    }
+
+    onAccountError(e) {
+        console.error(e);
+    }
+
+    onPlaybackError(e) {
+        console.error(e);
+    }
+
+    onPlayerStateChanged(state) {
+        console.log(state);
+        const track = state.track_window.current_track;
+
+        this.setState({
+            paused: state.paused,
+            currentlyPlaying: {
+                name: track.name,
+                artist: track.artists[0].name,
+                albumName: track.album.name,
+                albumArt: track.album.images[0].url,
+            }
+
+        })
+    }
+
+    onReady(data) {
+        console.log("Let the music play!");
+        const { device_id } = data;
+        this.setState({
+            deviceId: device_id,
+            ready: true,
+        });
     }
 
     componentDidMount() {
-        this.getCurrentlyPlaying();
-    }
-
-    getCurrentlyPlaying() {
-        const self = this;
-
-        fetch('https://api.spotify.com/v1/me/player', {
-            headers: new Headers({
-                'Authorization': 'Bearer ' + this.props.token,
-            }),
-        }).then(response => {
-            if (response.ok) {
-                response.json().then(json => {
-                    const playing = json.item;
-
-                    self.setState({
-                        currentlyPlaying: {
-                            name: playing.name,
-                            artist: playing.artists[0].name,
-                            albumName: playing.album.name,
-                            albumArt: playing.album.images[0].url,
-                        },
-                        ready: true,
-                    })
-                })
-            }
-        })
+        this.playerCheckInterval = setInterval(() => this.checkForPlayer(), 1000);
     }
 
     render() {
@@ -59,7 +97,6 @@ class Player extends Component {
             <>
                 {this.state.ready && (
                     <MusicPage
-                        spotifyApi={this.spotifyApi}
                         track={name}
                         artist={artist}
                         album={albumName}

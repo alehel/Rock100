@@ -4,7 +4,7 @@ import AlbumArt from './../../AlbumArt'
 import PropTypes from 'prop-types';
 import Radium from "radium";
 
-const Bar = ({artist, album, albumArt, track, openFullScreen, spotifyApi}) => {
+const Bar = ({artist, album, albumArt, track, openFullScreen}) => {
     return (
         <div style={styles.container}>
             <AlbumArt src={albumArt}/>
@@ -14,8 +14,7 @@ const Bar = ({artist, album, albumArt, track, openFullScreen, spotifyApi}) => {
                 <div>{track}</div>
             </div>
             <div style={styles.control}>
-                <button onClick={spotifyApi.play}>Play</button>
-                <button onClick={spotifyApi.pause}>Pause</button>
+
             </div>
             <img onClick={openFullScreen} src={expandIcon} alt="Open full screen" style={styles.expandIcon}/>
         </div>
@@ -56,9 +55,8 @@ const styles = {
 Bar.propTypes = {
     artist: PropTypes.string.isRequired,
     album: PropTypes.string.isRequired,
-    albumArt: PropTypes.string.isRequired,
+    albumArt: PropTypes.string,
     track: PropTypes.string.isRequired,
-    spotifyApi: PropTypes.object.isRequired,
 };
 
 export default Radium(Bar);

@@ -4,7 +4,7 @@ import Radium from "radium";
 import {clientId} from "../global_constants/secrets";
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
 export const redirectUri = "http://localhost:3000/callback";
-export const scopes = ["streaming", "user-read-birthdate", "user-read-email", "user-read-private"];
+export const scopes = ["streaming", "user-read-birthdate", "user-read-email", "user-read-private", "user-modify-playback-state"];
 
 function LoginButton() {
     return (

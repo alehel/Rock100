@@ -4,7 +4,7 @@ import {THEME_PRIMARY_COLOR_TRANSPARENT} from "../../../global_constants/style";
 import closeIcon from '../assets/close.svg';
 import Radium from "radium";
 
-const FullScreen = ({artist, album, albumArt, track, display, closeFullScreen}) => {
+const FullScreen = ({artist, albumArt, track, display, closeFullScreen}) => {
     const styles = {
         container: {
             position: 'fixed',
@@ -78,7 +78,6 @@ const FullScreen = ({artist, album, albumArt, track, display, closeFullScreen}) 
 
 FullScreen.propTypes = {
     artist: PropTypes.string.isRequired,
-    album: PropTypes.string.isRequired,
     albumArt: PropTypes.string.isRequired,
     track: PropTypes.string.isRequired,
     display: PropTypes.bool.isRequired,
