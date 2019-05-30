@@ -4,7 +4,7 @@ import AlbumArt from './../../AlbumArt'
 import PropTypes from 'prop-types';
 import Radium from "radium";
 
-const MusicBar = ({artist, album, albumArtUrl, track, duration, position, openFullScreen}) => {
+const Bar = ({artist, album, albumArtUrl, track, duration, position, openFullScreen}) => {
     return (
         <div style={styles.container}>
             <AlbumArt src={albumArtUrl}/>
@@ -55,7 +55,7 @@ const styles = {
     }
 };
 
-MusicBar.propTypes = {
+Bar.propTypes = {
     artist: PropTypes.string.isRequired,
     album: PropTypes.string.isRequired,
     albumArtUrl: PropTypes.string.isRequired,
@@ -64,4 +64,4 @@ MusicBar.propTypes = {
     position: PropTypes.number.isRequired,
 };
 
-export default Radium(MusicBar);
+export default Radium(Bar);

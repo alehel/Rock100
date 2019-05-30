@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import MusicBar from "./view/MusicBar";
+import MusicBar from "./view/Bar";
 import FullScreen from './view/FullScreen';
 
 const MusicPlayer = (props) => {
