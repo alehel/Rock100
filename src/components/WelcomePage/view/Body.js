@@ -1,8 +1,8 @@
 import React from 'react';
 import albumCompilationImage from "../assets/album_compilation.png";
-import MusicServiceLoginLink from "../../LoginLink";
 import backgroundImage from "../assets/welcome.jpg";
 import Radium from "radium";
+import LoginButton from "../../LoginButton";
 
 
 const Body = () => {
@@ -17,7 +17,7 @@ const Body = () => {
                         Using your Spotify Premium account you can listen to and read about all of these legendary
                         albums.*</p>
                     <p>A Spotify Premium account is required to use this site.</p>
-                    <MusicServiceLoginLink serviceProvider="Spotify"/>
+                    <LoginButton/>
 
                 </div>
             </div>

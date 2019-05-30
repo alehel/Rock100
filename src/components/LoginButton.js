@@ -1,15 +1,15 @@
 import React from 'react';
 import Radium from "radium";
 
-import {clientId} from "../../../global_constants/secrets";
+import {clientId} from "../global_constants/secrets";
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
-export const redirectUri = "http://localhost:3000/callback/spotify";
+export const redirectUri = "http://localhost:3000/callback";
 export const scopes = [
     "user-read-currently-playing",
     "user-read-playback-state",
 ];
 
-function Spotify() {
+function LoginButton() {
     return (
         <div style={styles.linkContainer}>
             <a style={styles.link}
@@ -39,4 +39,4 @@ const styles = {
     },
 };
 
-export default Radium(Spotify);
+export default Radium(LoginButton);

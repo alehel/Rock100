@@ -1,23 +1,62 @@
-import React from 'react';
-import {THEME_PRIMARY_COLOR} from "./global_constants/style";
+import React, {Component} from 'react';
 import {StyleRoot} from 'radium';
-import AppRoutes from './AppRoutes';
+import WelcomePage from "./components/WelcomePage";
+import SpotifyServiceHandler from "./components/SpotifyServiceWrapper/";
+import LoginError from "./components/LoginError";
 
-function App() {
-    return (
-        <StyleRoot>
-            <div style={style}>
-                <AppRoutes/>
-            </div>
-        </StyleRoot>
+class App extends Component {
+    constructor(props) {
+        super(props);
 
-    );
+        this.state = {token: null};
+    }
+
+    componentDidMount() {
+        const _token = this.getTokenFromHash();
+        if (_token) {
+            this.setState({
+                token: _token
+            });
+        }
+    }
+
+    loginError() {
+        return window.location.href.includes("error=access_denied");
+    }
+
+    getTokenFromHash() {
+        const token = window.location.hash
+            .substring(1)
+            .split("&")
+            .reduce(function (initial, item) {
+                if (item) {
+                    var parts = item.split("=");
+                    initial[parts[0]] = decodeURIComponent(parts[1]);
+                }
+                return initial;
+            }, {}).access_token;
+
+        //window.location.hash = "";
+        return token;
+    }
+
+    render() {
+        const token = this.state.token;
+
+        return (
+            <StyleRoot>
+                <div style={style}>
+                    {this.loginError() ? <LoginError/>:
+                        !token ? <WelcomePage/> : <SpotifyServiceHandler token={token}/>
+                    }
+                </div>
+            </StyleRoot>
+        );
+    }
 }
 
 const style = {
-    backgroundColor: THEME_PRIMARY_COLOR,
     display: 'flex',
-    flexDirection: 'column',
     minHeight: '100vh'
 };
 

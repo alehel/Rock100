@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import expandIcon from './../../../assets/expand.svg';
+import expandIcon from '../assets/expand.svg';
 import AlbumArt from './../../AlbumArt'
 import PropTypes from 'prop-types';
 import Radium from "radium";
