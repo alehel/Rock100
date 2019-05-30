@@ -38,13 +38,6 @@ const styles = {
         flex: 1,
     },
 
-    expand: {
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-
-    },
-
     expandIcon: {
         margin: 'auto',
         height: '50%',
