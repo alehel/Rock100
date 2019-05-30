@@ -4,7 +4,7 @@ import {THEME_PRIMARY_COLOR} from "../../../global_constants/style";
 import closeIcon from '../assets/close.svg';
 import Radium from "radium";
 
-const FullScreen = ({artist, album, albumArtUrl, track, duration, position, display, closeFullScreen}) => {
+const FullScreen = ({artist, album, albumArt, track, display, closeFullScreen}) => {
     const styles = {
         container: {
             position: 'fixed',
@@ -17,7 +17,34 @@ const FullScreen = ({artist, album, albumArtUrl, track, duration, position, disp
 
             transitionProperty: 'all',
             transitionDuration: '0.4s',
-            transitionTimingFunction: 'linear'
+            transitionTimingFunction: 'linear',
+
+            color: 'white',
+        },
+
+        albumArtContainer: {
+            marginTop: '5rem'
+        },
+
+        albumArt: {
+            margin: 'auto',
+            display: 'block',
+            maxWidth: '70%',
+        },
+
+        text: {
+            textAlign: 'center',
+            marginTop: '1rem',
+            lineHeight: '2.5rem',
+        },
+
+        trackName: {
+            fontWeight: '900',
+            fontSize: '1.8rem',
+        },
+
+        artistName: {
+            fontSize: '1.6rem',
         },
 
         closeIcon: {
@@ -35,7 +62,15 @@ const FullScreen = ({artist, album, albumArtUrl, track, duration, position, disp
 
     return (
         <div style={styles.container}>
-            <img src={closeIcon} onClick={closeFullScreen} alt="Close full screen" style={styles.closeIcon} />
+            <img src={closeIcon} onClick={closeFullScreen} alt="Close full screen" style={styles.closeIcon}/>
+            <div style={styles.albumArtContainer}>
+                <img src={albumArt} alt="album art" style={styles.albumArt}/>
+            </div>
+
+            <div style={styles.text}>
+                <div style={styles.trackName}>{track}</div>
+                <div style={styles.artistName}>{artist}</div>
+            </div>
         </div>
     );
 };
@@ -46,6 +81,8 @@ FullScreen.propTypes = {
     album: PropTypes.string.isRequired,
     albumArt: PropTypes.string.isRequired,
     track: PropTypes.string.isRequired,
+    display: PropTypes.bool.isRequired,
+    closeFullscreen: PropTypes.func.isRequired
 };
 
 export default Radium(FullScreen);
