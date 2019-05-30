@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {StyleRoot} from 'radium';
 import WelcomePage from "./components/WelcomePage";
-import SpotifyServiceHandler from "./components/SpotifyServiceWrapper/";
+import SpotifyServiceHandler from "./components/SpotifyServiceWrapper";
 import LoginError from "./components/LoginError";
 
 class App extends Component {

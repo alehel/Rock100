@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MusicPage from "../MusicPage";
+import MusicPage from "./MusicPage";
 
 class Player extends Component {
     constructor(props) {
