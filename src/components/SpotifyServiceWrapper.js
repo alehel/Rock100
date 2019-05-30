@@ -6,7 +6,14 @@ class Player extends Component {
         super(props);
 
         this.state = {
+            currentlyPlaying: {
+                name: "",
+                artist: "",
+                albumName: "",
+                albumArt: undefined
+            },
             ready: false,
+
             item: {
                 album: {
                     images: [{url: ""}]
@@ -36,11 +43,15 @@ class Player extends Component {
         }).then(response => {
             if (response.ok) {
                 response.json().then(json => {
-                    console.log(json);
+                    const playing = json.item;
+
                     self.setState({
-                        item: json.item,
-                        is_playing: json.is_playing,
-                        progress_ms: json.progress_ms,
+                        currentlyPlaying: {
+                            name: playing.name,
+                            artist: playing.artists[0].name,
+                            albumName: playing.album.name,
+                            albumArt: playing.album.images[0].url,
+                        },
                         ready: true,
                     })
                 })
@@ -49,48 +60,21 @@ class Player extends Component {
     }
 
     render() {
-        const progressBarWidth = {
-            width: (this.state.progress_ms * 100 / this.state.item.duration_ms) + '%'
-        };
-
-        const item = this.state.item;
+        const { name, artist, albumName, albumArt } = this.state.currentlyPlaying;
 
         return (
             <>
                 {this.state.ready && (
                     <MusicPage
-                        track={item.name}
-                        duration={item.duration_ms}
-                        position={item.position}
-                        artist={item.artists[0].name}
-                        album={item.album.name}
-                        albumArtUrl={item.album.images[0].url}/>
+                        track={name}
+                        artist={artist}
+                        album={albumName}
+                        albumArt={albumArt}/>
 
                 )}
             </>
         );
     }
 }
-
-const styles = {
-    container: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-        flex: 1,
-    },
-    progress: {
-        border: '1px solid #eee',
-        height: '6px',
-        borderRadius: '3px',
-        overflow: 'hidden',
-    },
-
-    progressBar: {
-        backgroundColor: '#eee',
-        height: '4px',
-    }
-};
 
 export default Player;

@@ -44,11 +44,8 @@ const FullScreen = ({artist, album, albumArtUrl, track, duration, position, disp
 FullScreen.propTypes = {
     artist: PropTypes.string.isRequired,
     album: PropTypes.string.isRequired,
-    albumArtUrl: PropTypes.string.isRequired,
+    albumArt: PropTypes.string.isRequired,
     track: PropTypes.string.isRequired,
-    duration: PropTypes.number.isRequired,
-    position: PropTypes.number.isRequired,
-    closeFullScreen: PropTypes.func.isRequired
 };
 
 export default Radium(FullScreen);

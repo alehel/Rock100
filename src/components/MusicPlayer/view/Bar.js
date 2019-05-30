@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import expandIcon from '../assets/expand.svg';
 import AlbumArt from './../../AlbumArt'
 import PropTypes from 'prop-types';
 import Radium from "radium";
 
-const Bar = ({artist, album, albumArtUrl, track, duration, position, openFullScreen}) => {
+const Bar = ({artist, album, albumArt, track, openFullScreen}) => {
     return (
         <div style={styles.container}>
-            <AlbumArt src={albumArtUrl}/>
+            <AlbumArt src={albumArt}/>
             <div style={styles.songDetails}>
                 <div>Artist: {artist}</div>
                 <div>Album: {album}</div>
@@ -39,9 +39,8 @@ const styles = {
     },
 
     expandIcon: {
-        margin: 'auto',
+        margin: 'auto 2rem',
         height: '50%',
-        marginRight: '2rem',
         ':hover': {
             cursor: 'pointer',
         }
@@ -51,10 +50,8 @@ const styles = {
 Bar.propTypes = {
     artist: PropTypes.string.isRequired,
     album: PropTypes.string.isRequired,
-    albumArtUrl: PropTypes.string.isRequired,
+    albumArt: PropTypes.string.isRequired,
     track: PropTypes.string.isRequired,
-    duration: PropTypes.number.isRequired,
-    position: PropTypes.number.isRequired,
 };
 
 export default Radium(Bar);

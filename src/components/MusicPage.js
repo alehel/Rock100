@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import MusicPlayer from "./MusicPlayer";
 import {THEME_PRIMARY_COLOR} from "../global_constants/style";
 
@@ -24,9 +23,5 @@ const styles = {
         backgroundColor: THEME_PRIMARY_COLOR,
     }
 }
-
-MusicPage.propTypes = {
-
-};
 
 export default MusicPage;
