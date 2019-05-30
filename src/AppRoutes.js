@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import WelcomePage from './components/WelcomePage/';
 import Spotify from './components/MusicServiceHandler/Spotify/SpotifyTokenHandler'
-import Error404Page from './components/Error404Page/';
+import Error404Page from './components/Error404Page';
 
 const AppRoutes = () => (
     <Router>

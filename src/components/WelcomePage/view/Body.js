@@ -1,7 +1,7 @@
 import React from 'react';
-import albumCompilationImage from "../../../assets/album_compilation.png";
+import albumCompilationImage from "../assets/album_compilation.png";
 import MusicServiceLoginLink from "../../LoginLink";
-import backgroundImage from "../../../assets/welcome.jpg";
+import backgroundImage from "../assets/welcome.jpg";
 import Radium from "radium";
 
 

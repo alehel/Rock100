@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MusicPlayer from "../MusicPlayer";
+import MusicPlayer from "./MusicPlayer";
 
 const MusicPage = props => {
     return (

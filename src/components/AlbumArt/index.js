@@ -1,5 +1,5 @@
 import React from 'react';
-import noMusic from './../../assets/no-music.svg';
+import noMusic from './assets/no-music.svg';
 import PropTypes from "prop-types";
 
 function AlbumArt({src}) {
