@@ -9,7 +9,7 @@ export const scopes = [
     "user-read-playback-state",
 ];
 
-function SpotifyLoginLink() {
+function Spotify() {
     return (
         <div style={styles.linkContainer}>
             <a style={styles.link}
@@ -39,4 +39,4 @@ const styles = {
     },
 };
 
-export default Radium(SpotifyLoginLink);
+export default Radium(Spotify);
