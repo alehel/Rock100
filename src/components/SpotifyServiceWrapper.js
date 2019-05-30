@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import MusicPage from "./MusicPage";
+const Spotify = require('spotify-web-api-js');
 
 class Player extends Component {
+    spotifyApi = new Spotify();
+
     constructor(props) {
         super(props);
 
@@ -13,19 +16,9 @@ class Player extends Component {
                 albumArt: undefined
             },
             ready: false,
-
-            item: {
-                album: {
-                    images: [{url: ""}]
-                },
-                name: "",
-                artists: [{name: ""}],
-                duration_ms: 0,
-            },
-            is_playing: "Paused",
-            progress_ms: 0
         };
 
+        this.spotifyApi.setAccessToken(this.props.token);
         this.getCurrentlyPlaying = this.getCurrentlyPlaying.bind(this);
     }
 
@@ -66,6 +59,7 @@ class Player extends Component {
             <>
                 {this.state.ready && (
                     <MusicPage
+                        spotifyApi={this.spotifyApi}
                         track={name}
                         artist={artist}
                         album={albumName}

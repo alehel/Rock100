@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {THEME_PRIMARY_COLOR, THEME_PRIMARY_COLOR_TRANSPARENT} from "../../../global_constants/style";
+import {THEME_PRIMARY_COLOR_TRANSPARENT} from "../../../global_constants/style";
 import closeIcon from '../assets/close.svg';
 import Radium from "radium";
 
@@ -82,7 +82,7 @@ FullScreen.propTypes = {
     albumArt: PropTypes.string.isRequired,
     track: PropTypes.string.isRequired,
     display: PropTypes.bool.isRequired,
-    closeFullscreen: PropTypes.func.isRequired
+    closeFullScreen: PropTypes.func.isRequired
 };
 
 export default Radium(FullScreen);

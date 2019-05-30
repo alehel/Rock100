@@ -5,7 +5,8 @@ import {THEME_PRIMARY_COLOR} from "../global_constants/style";
 const MusicPage = props => {
     return (
         <div style={styles.container}>
-            <div style={styles.content}>{/* CONTENT GOES HERE */}</div>
+            <div style={styles.content}>
+            </div>
             <MusicPlayer {...props}/>
         </div>
     );
