@@ -7,7 +7,7 @@ import Radium from "radium";
 const Bar = ({artist, album, albumArt, track, openFullScreen}) => {
     return (
         <div style={styles.container}>
-            <AlbumArt src={albumArt}/>
+            <AlbumArt src={albumArt} style={styles.albumArt}/>
             <div style={styles.songDetails}>
                 <div>{artist}</div>
                 <div>{album}</div>
@@ -27,6 +27,11 @@ const styles = {
         display: 'flex',
         backgroundColor: 'black',
         color: 'white',
+    },
+
+    albumArt: {
+        width: '120px',
+        height: '100%',
     },
 
     songDetails: {

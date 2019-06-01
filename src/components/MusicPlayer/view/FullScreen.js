@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {THEME_PRIMARY_COLOR_TRANSPARENT} from "../../../global_constants/style";
 import closeIcon from '../assets/close.svg';
 import Radium from "radium";
+import AlbumArt from "../../AlbumArt";
 
 const FullScreen = ({artist, albumArt, track, display, closeFullScreen}) => {
     const styles = {
@@ -20,16 +21,6 @@ const FullScreen = ({artist, albumArt, track, display, closeFullScreen}) => {
             transitionTimingFunction: 'linear',
 
             color: 'white',
-        },
-
-        albumArtContainer: {
-            marginTop: '5rem'
-        },
-
-        albumArt: {
-            margin: 'auto',
-            display: 'block',
-            maxWidth: '70%',
         },
 
         text: {
@@ -63,9 +54,7 @@ const FullScreen = ({artist, albumArt, track, display, closeFullScreen}) => {
     return (
         <div style={styles.container}>
             <img src={closeIcon} onClick={closeFullScreen} alt="Close full screen" style={styles.closeIcon}/>
-            <div style={styles.albumArtContainer}>
-                <img src={albumArt} alt="album art" style={styles.albumArt}/>
-            </div>
+            <AlbumArt src={albumArt} style={styles.albumArt}/>
 
             <div style={styles.text}>
                 <div style={styles.trackName}>{track}</div>
