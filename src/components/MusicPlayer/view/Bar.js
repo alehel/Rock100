@@ -31,26 +31,44 @@ const Bar = ({artist, album, albumArt, track, openFullScreen, spotifyAPI}) => {
             flex: 1,
         },
 
+        mobileFill: {
+            '@media only screen and (max-width: 800px)': {
+                flex: 1,
+            }
+        },
+
         songDetails: {
+            '@media only screen and (max-width: 800px)': {
+                display: 'none',
+            },
+            height: '100%',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             padding: '1.2rem  1rem',
+            maxWidth: '320px',
         },
+
+        songDetailsText: {
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis'
+        }
     };
 
     return (
         <div style={styles.container}>
             <AlbumArt src={albumArt} style={styles.albumArt}/>
             <div style={styles.songDetails}>
-                <div>{artist}</div>
-                <div>{album}</div>
-                <div>{track}</div>
+                <div style={styles.songDetailsText}>{artist}</div>
+                <div style={styles.songDetailsText}>{album}</div>
+                <div style={styles.songDetailsText}>{track}</div>
             </div>
             <div style={styles.fill}/>
             <Controls
                 spotifyAPI={spotifyAPI}
                 size={50}/>
+            <div style={styles.mobileFill}/>
             <ControlButton
                 onClick={openFullScreen}
                 icon={expandIcon}
