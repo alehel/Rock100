@@ -3,20 +3,30 @@ import expandIcon from '../assets/expand.svg';
 import AlbumArt from './../../AlbumArt'
 import PropTypes from 'prop-types';
 import Radium from "radium";
-import Controls from "./Controls";
+import previousIcon from '../assets/previous.svg';
+import playIcon from '../assets/play.svg';
+import nextIcon from '../assets/next.svg';
+import ControlButton from "./ControlButton";
 
 const Bar = ({artist, album, albumArt, track, openFullScreen, spotifyAPI}) => {
+    const barSize = '120px';
+    const buttonSize = '50px';
+
     const styles = {
         container: {
-            height: '120px',
+            height: barSize,
             display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
             backgroundColor: 'black',
             color: 'white',
         },
 
         albumArt: {
-            width: '120px',
-            height: '100%',
+            minWidth: barSize,
+            width: barSize,
+            minHeight: barSize,
+            height: barSize,
         },
 
         fill: {
@@ -29,15 +39,6 @@ const Bar = ({artist, album, albumArt, track, openFullScreen, spotifyAPI}) => {
             justifyContent: 'space-between',
             padding: '1.2rem  1rem',
         },
-
-
-        expandIcon: {
-            margin: 'auto 2rem',
-            height: '50%',
-            ':hover': {
-                cursor: 'pointer',
-            }
-        }
     };
 
     return (
@@ -48,9 +49,31 @@ const Bar = ({artist, album, albumArt, track, openFullScreen, spotifyAPI}) => {
                 <div>{album}</div>
                 <div>{track}</div>
             </div>
-            <div style={styles.fill}></div>
-            <Controls spotifyAPI={spotifyAPI}/>
-            <img onClick={openFullScreen} src={expandIcon} alt="Open full screen" style={styles.expandIcon}/>
+            <div style={styles.fill}/>
+            <ControlButton
+                onClick={() => spotifyAPI.previousTrack()}
+                description="previous track"
+                icon={previousIcon}
+                key="cmdPrev"
+                size={buttonSize}/>
+            <ControlButton
+                onClick={() => spotifyAPI.togglePlay()}
+                description="play/pause track"
+                icon={playIcon}
+                key="cmdPlay"
+                size={buttonSize}/>
+            <ControlButton
+                onClick={() => spotifyAPI.nextTrack()}
+                description="next track"
+                icon={nextIcon}
+                key="cmdNext"
+                size={buttonSize}/>
+            <ControlButton
+                onClick={openFullScreen}
+                icon={expandIcon}
+                description="open full screen"
+                key="cmdFullScreen"
+                size={buttonSize}/>
         </div>
     );
 };

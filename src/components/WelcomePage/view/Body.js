@@ -53,6 +53,7 @@ const styles = {
     },
 
     content: {
+        maxWidth: '1400px',
         '@media only screen and (min-width: 1400px)': {
             flex: 1,
             display: 'flex',

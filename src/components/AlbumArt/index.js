@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function AlbumArt({src, style}) {
     const comp = src === undefined ? <NoAlbum/> : <ActiveAlbum src={src} />
 
-    return <div style={{...style, textAlign: 'center', overflow: 'hidden'}}>{comp}</div>;
+    return <div style={{overflow: 'hidden', ...style}}>{comp}</div>;
 }
 
 
@@ -22,11 +22,6 @@ function NoAlbum() {
 }
 
 const styles = {
-    container: {
-        textAlign: 'center',
-        overflow: 'hidden',
-    },
-
     constraint: {
         objectFit: 'contain',
         width: '100%',
