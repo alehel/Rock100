@@ -15,13 +15,14 @@ class Player extends Component {
             paused: true,
             deviceId: "",
             ready: false,
+            transfered: false,
+            token: this.props.token
         };
 
         this.playerCheckInterval = null;
     }
 
     checkForPlayer() {
-
         if (window.Spotify !== null) {
             clearInterval(this.playerCheckInterval);
             this.player = new window.Spotify.Player({
@@ -35,6 +36,21 @@ class Player extends Component {
         }
     }
 
+    transferPlaybackHere() {
+        const { deviceId, token } = this.state;
+        fetch("https://api.spotify.com/v1/me/player", {
+            method: "PUT",
+            headers: {
+                authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                "device_ids": [ deviceId ],
+                "play": true,
+            }),
+        }).then(() => this.setState({transfered: true}));
+    }
+
     createEventHandlers() {
         this.player.on('initialization_error', e => this.onInitializationError(e));
         this.player.on('authentication_error', e => this.onAccountError(e));
@@ -45,19 +61,22 @@ class Player extends Component {
     }
 
     onInitializationError(e) {
+        console.warn("onInitializationError");
         console.error(e);
     }
 
     onAuthenticationError(e) {
-        // not logged inn
+        console.warn("onAuthenticationError");
         console.error(e);
     }
 
     onAccountError(e) {
+        console.warn("onAccountError");
         console.error(e);
     }
 
     onPlaybackError(e) {
+        console.warn("onPlaybackError");
         console.error(e);
     }
 
@@ -91,17 +110,20 @@ class Player extends Component {
     }
 
     render() {
-        const { name, artist, albumName, albumArt } = this.state.currentlyPlaying;
+        if(this.state.ready && !this.state.transfered) {
+            this.transferPlaybackHere();
+        }
 
+        const { name, artist, albumName, albumArt } = this.state.currentlyPlaying;
         return (
             <>
-                {this.state.ready && (
+                {this.state.transfered && (
                     <MusicPage
                         track={name}
                         artist={artist}
                         album={albumName}
-                        albumArt={albumArt}/>
-
+                        albumArt={albumArt}
+                        spotifyAPI={this.player} />
                 )}
             </>
         );

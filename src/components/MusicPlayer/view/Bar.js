@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Radium from "radium";
 import Controls from "./Controls";
 
-const Bar = ({artist, album, albumArt, track, openFullScreen, display}) => {
+const Bar = ({artist, album, albumArt, track, openFullScreen, spotifyAPI}) => {
     const styles = {
         container: {
             height: '120px',
@@ -19,7 +19,7 @@ const Bar = ({artist, album, albumArt, track, openFullScreen, display}) => {
             height: '100%',
         },
 
-        controls: {
+        fill: {
             flex: 1,
         },
 
@@ -48,7 +48,8 @@ const Bar = ({artist, album, albumArt, track, openFullScreen, display}) => {
                 <div>{album}</div>
                 <div>{track}</div>
             </div>
-            <Controls style={styles.controls}/>
+            <div style={styles.fill}></div>
+            <Controls spotifyAPI={spotifyAPI}/>
             <img onClick={openFullScreen} src={expandIcon} alt="Open full screen" style={styles.expandIcon}/>
         </div>
     );
