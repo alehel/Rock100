@@ -27,7 +27,9 @@ class Player extends Component {
             clearInterval(this.playerCheckInterval);
             this.player = new window.Spotify.Player({
                 name: "Rock 100",
-                getOAuthToken: cb => { cb(this.props.token); },
+                getOAuthToken: cb => {
+                    cb(this.props.token);
+                },
             });
 
             this.createEventHandlers();
@@ -37,7 +39,7 @@ class Player extends Component {
     }
 
     transferPlaybackHere() {
-        const { deviceId, token } = this.state;
+        const {deviceId, token} = this.state;
         fetch("https://api.spotify.com/v1/me/player", {
             method: "PUT",
             headers: {
@@ -45,10 +47,10 @@ class Player extends Component {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                "device_ids": [ deviceId ],
+                "device_ids": [deviceId],
                 "play": true,
             }),
-        }).then(() => this.setState({transfered: true}));
+        });
     }
 
     createEventHandlers() {
@@ -57,7 +59,11 @@ class Player extends Component {
         this.player.on('account_error', e => this.onAccountError(e));
         this.player.on('playback_error', e => this.onPlaybackError(e));
         this.player.on('player_state_changed', state => this.onPlayerStateChanged(state));
-        this.player.on('ready', data => this.onReady(data));
+        this.player.on('ready', async data => {
+            const {device_id} = data;
+            await this.setState({deviceId: device_id, ready: true});
+            this.transferPlaybackHere();
+        });
     }
 
     onInitializationError(e) {
@@ -81,7 +87,6 @@ class Player extends Component {
     }
 
     onPlayerStateChanged(state) {
-        console.log(state);
         const track = state.track_window.current_track;
 
         this.setState({
@@ -96,13 +101,16 @@ class Player extends Component {
         })
     }
 
-    onReady(data) {
-        console.log("Let the music play!");
-        const { device_id } = data;
-        this.setState({
-            deviceId: device_id,
-            ready: true,
-        });
+    onPrevClick() {
+        this.player.previousTrack();
+    }
+
+    onPlayClick() {
+        this.player.togglePlay();
+    }
+
+    onNextClick() {
+        this.player.nextTrack();
     }
 
     componentDidMount() {
@@ -110,20 +118,19 @@ class Player extends Component {
     }
 
     render() {
-        if(this.state.ready && !this.state.transfered) {
-            this.transferPlaybackHere();
-        }
 
-        const { name, artist, albumName, albumArt } = this.state.currentlyPlaying;
+        const {name, artist, albumName, albumArt} = this.state.currentlyPlaying;
         return (
             <>
-                {this.state.transfered && (
-                    <MusicPage
-                        track={name}
-                        artist={artist}
-                        album={albumName}
-                        albumArt={albumArt}
-                        spotifyAPI={this.player} />
+                {this.state.ready && (
+                    <>
+                        <MusicPage
+                            track={name}
+                            artist={artist}
+                            album={albumName}
+                            albumArt={albumArt}
+                            spotifyAPI={this.player}/>
+                    </>
                 )}
             </>
         );
