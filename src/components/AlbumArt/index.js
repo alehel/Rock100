@@ -5,26 +5,33 @@ import PropTypes from "prop-types";
 function AlbumArt({src, style}) {
     const comp = src === undefined ? <NoAlbum/> : <ActiveAlbum src={src} />
 
-    return <div style={{...style, textAlign: 'center'}}>{comp}</div>;
+    return <div style={{...style, textAlign: 'center', overflow: 'hidden'}}>{comp}</div>;
 }
 
 
 function ActiveAlbum({src}) {
     return (
-        <img src={src} alt="" style={constraint}/>
+        <img src={src} alt="" style={styles.constraint}/>
     );
 }
 
 function NoAlbum() {
     return (
-        <img src={noMusic} alt="no music playing" style={constraint}/>
+        <img src={noMusic} alt="no music playing" style={styles.constraint}/>
     );
 }
 
-const constraint = {
-    objectFit: 'contain',
-    width: '100%',
-    height: '100%'
+const styles = {
+    container: {
+        textAlign: 'center',
+        overflow: 'hidden',
+    },
+
+    constraint: {
+        objectFit: 'contain',
+        width: '100%',
+        height: '100%'
+    }
 }
 
 

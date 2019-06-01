@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {THEME_PRIMARY_COLOR_TRANSPARENT} from "../../../global_constants/style";
+import {THEME_PRIMARY_COLOR} from "../../../global_constants/style";
 import closeIcon from '../assets/close.svg';
 import Radium from "radium";
 import AlbumArt from "../../AlbumArt";
+import Controls from "./Controls";
 
 const FullScreen = ({artist, albumArt, track, display, closeFullScreen}) => {
     const styles = {
@@ -14,7 +15,7 @@ const FullScreen = ({artist, albumArt, track, display, closeFullScreen}) => {
             zIndex: 2,
             width: '100%',
             height: !display ? '0%' : '100%',
-            backgroundColor: THEME_PRIMARY_COLOR_TRANSPARENT,
+            backgroundColor: THEME_PRIMARY_COLOR,
 
             color: 'white',
 
@@ -54,6 +55,10 @@ const FullScreen = ({artist, albumArt, track, display, closeFullScreen}) => {
             ':hover': {
                 cursor: 'pointer',
             }
+        },
+
+        controls: {
+            height: '100px',
         }
     };
 
@@ -66,6 +71,8 @@ const FullScreen = ({artist, albumArt, track, display, closeFullScreen}) => {
                 <div style={styles.trackName}>{track}</div>
                 <div style={styles.artistName}>{artist}</div>
             </div>
+            <Controls style={styles.controls} />
+
         </div>
     );
 };

@@ -9,7 +9,7 @@ const MusicPlayer = (props) => {
     return (
         <>
             <FullScreen {...props} display={fullScreen} closeFullScreen={() => setFullScreen(false)} />
-            <MusicBar {...props} openFullScreen={() => setFullScreen(true)}/>
+            <MusicBar {...props} display={!fullScreen} openFullScreen={() => setFullScreen(true)}/>
         </>
     );
 };
