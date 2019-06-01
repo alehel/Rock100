@@ -3,14 +3,12 @@ import expandIcon from '../assets/expand.svg';
 import AlbumArt from './../../AlbumArt'
 import PropTypes from 'prop-types';
 import Radium from "radium";
-import previousIcon from '../assets/previous.svg';
-import playIcon from '../assets/play.svg';
-import nextIcon from '../assets/next.svg';
 import ControlButton from "./ControlButton";
+import Controls from "./Controls";
 
 const Bar = ({artist, album, albumArt, track, openFullScreen, spotifyAPI}) => {
     const barSize = '120px';
-    const buttonSize = '50px';
+    const buttonSizePrimary = 50;
 
     const styles = {
         container: {
@@ -50,30 +48,15 @@ const Bar = ({artist, album, albumArt, track, openFullScreen, spotifyAPI}) => {
                 <div>{track}</div>
             </div>
             <div style={styles.fill}/>
-            <ControlButton
-                onClick={() => spotifyAPI.previousTrack()}
-                description="previous track"
-                icon={previousIcon}
-                key="cmdPrev"
-                size={buttonSize}/>
-            <ControlButton
-                onClick={() => spotifyAPI.togglePlay()}
-                description="play/pause track"
-                icon={playIcon}
-                key="cmdPlay"
-                size={buttonSize}/>
-            <ControlButton
-                onClick={() => spotifyAPI.nextTrack()}
-                description="next track"
-                icon={nextIcon}
-                key="cmdNext"
-                size={buttonSize}/>
+            <Controls
+                spotifyAPI={spotifyAPI}
+                size={50}/>
             <ControlButton
                 onClick={openFullScreen}
                 icon={expandIcon}
                 description="open full screen"
                 key="cmdFullScreen"
-                size={buttonSize}/>
+                size={buttonSizePrimary + "px"}/>
         </div>
     );
 };

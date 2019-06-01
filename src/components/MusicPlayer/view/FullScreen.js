@@ -56,9 +56,11 @@ const FullScreen = ({artist, albumArt, track, display, closeFullScreen, spotifyA
                 cursor: 'pointer',
             }
         },
-
         controls: {
-            height: '100px',
+            marginTop: '1rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
         }
     };
 
@@ -71,7 +73,10 @@ const FullScreen = ({artist, albumArt, track, display, closeFullScreen, spotifyA
                 <div style={styles.trackName}>{track}</div>
                 <div style={styles.artistName}>{artist}</div>
             </div>
-            <Controls style={styles.controls} spotifyAPI={spotifyAPI}/>
+            <div style={styles.controls}>
+                <Controls size={80} spotifyAPI={spotifyAPI}/>
+            </div>
+
 
         </div>
     );
