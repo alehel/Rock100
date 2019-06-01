@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function AlbumArt({src, style}) {
     const comp = src === undefined ? <NoAlbum/> : <ActiveAlbum src={src} />
 
-    return <div style={style}>{comp}</div>;
+    return <div style={{...style, textAlign: 'center'}}>{comp}</div>;
 }
 
 
@@ -22,8 +22,9 @@ function NoAlbum() {
 }
 
 const constraint = {
-    maxWidth: '100%',
-    maxHeight: '100%',
+    objectFit: 'contain',
+    width: '100%',
+    height: '100%'
 }
 
 

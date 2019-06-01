@@ -16,11 +16,17 @@ const FullScreen = ({artist, albumArt, track, display, closeFullScreen}) => {
             height: !display ? '0%' : '100%',
             backgroundColor: THEME_PRIMARY_COLOR_TRANSPARENT,
 
-            transitionProperty: 'all',
-            transitionDuration: '0.4s',
-            transitionTimingFunction: 'linear',
-
             color: 'white',
+
+            display: !display ? 'none' : 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column'
+        },
+
+        albumArt: {
+            width: '60%',
+            maxHeight: '60%',
         },
 
         text: {
