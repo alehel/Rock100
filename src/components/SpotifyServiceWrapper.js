@@ -20,6 +20,7 @@ class Player extends Component {
         };
 
         this.playerCheckInterval = null;
+        this.playTrack = this.playTrack.bind(this);
     }
 
     checkForPlayer() {
@@ -47,8 +48,24 @@ class Player extends Component {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                "device_ids": [deviceId],
-                "play": true,
+                device_ids: [deviceId],
+                play: true,
+            }),
+        });
+    }
+
+    playTrack(spotifyURI) {
+        const {deviceId, token} = this.state;
+        fetch("https://api.spotify.com/v1/me/player", {
+            method: "PUT",
+            headers: {
+                authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                device_ids: [deviceId],
+                play: true,
+                uris: [spotifyURI]
             }),
         });
     }
