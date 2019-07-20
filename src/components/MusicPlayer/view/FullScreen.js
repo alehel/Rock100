@@ -6,7 +6,7 @@ import Radium from "radium";
 import AlbumArt from "../../AlbumArt";
 import Controls from "./Controls";
 
-const FullScreen = ({artist, albumArt, track, display, closeFullScreen, spotifyAPI}) => {
+const FullScreen = ({artist, albumArt, track, display, closeFullScreen, paused, spotifyAPI}) => {
     const styles = {
         container: {
             position: 'fixed',
@@ -74,7 +74,7 @@ const FullScreen = ({artist, albumArt, track, display, closeFullScreen, spotifyA
                 <div style={styles.artistName}>{artist}</div>
             </div>
             <div style={styles.controls}>
-                <Controls size={80} spotifyAPI={spotifyAPI}/>
+                <Controls size={80} paused={paused} spotifyAPI={spotifyAPI}/>
             </div>
 
 

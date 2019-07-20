@@ -6,7 +6,7 @@ import Radium from "radium";
 import ControlButton from "./ControlButton";
 import Controls from "./Controls";
 
-const Bar = ({artist, album, albumArt, track, openFullScreen, spotifyAPI}) => {
+const Bar = ({artist, album, albumArt, track, openFullScreen, paused, spotifyAPI}) => {
     const barSize = '120px';
     const buttonSizePrimary = 50;
 
@@ -67,6 +67,7 @@ const Bar = ({artist, album, albumArt, track, openFullScreen, spotifyAPI}) => {
             <div style={styles.fill}/>
             <Controls
                 spotifyAPI={spotifyAPI}
+                paused={paused}
                 size={50}/>
             <div style={styles.mobileFill}/>
             <ControlButton

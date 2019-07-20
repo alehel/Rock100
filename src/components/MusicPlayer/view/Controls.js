@@ -1,11 +1,12 @@
 import React from 'react';
 import previousIcon from '../assets/previous.svg';
 import playIcon from '../assets/play.svg';
+import pausedIcon from '../assets/pause.svg'
 import nextIcon from '../assets/next.svg';
 import Radium from "radium";
 import ControlButton from "./ControlButton";
 
-const Controls = ({spotifyAPI, size}) => {
+const Controls = ({spotifyAPI, size, paused}) => {
     const buttonSizePrimary = parseInt(size) + "px";
     const buttonSizeSecondary = parseInt(size) - 20 + "px";
 
@@ -20,7 +21,7 @@ const Controls = ({spotifyAPI, size}) => {
             <ControlButton
                 onClick={() => spotifyAPI.togglePlay()}
                 description="play/pause track"
-                icon={playIcon}
+                icon={paused ? playIcon : pausedIcon}
                 key="cmdPlay"
                 size={buttonSizePrimary}/>
             <ControlButton

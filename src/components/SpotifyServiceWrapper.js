@@ -10,9 +10,9 @@ class Player extends Component {
                 name: "",
                 artist: "",
                 albumName: "",
-                albumArt: undefined
+                albumArt: undefined,
+                paused: true
             },
-            paused: true,
             deviceId: "",
             ready: false,
             transfered: false,
@@ -90,27 +90,15 @@ class Player extends Component {
         const track = state.track_window.current_track;
 
         this.setState({
-            paused: state.paused,
             currentlyPlaying: {
                 name: track.name,
                 artist: track.artists[0].name,
                 albumName: track.album.name,
                 albumArt: track.album.images[0].url,
+                paused: state.paused,
             }
 
         })
-    }
-
-    onPrevClick() {
-        this.player.previousTrack();
-    }
-
-    onPlayClick() {
-        this.player.togglePlay();
-    }
-
-    onNextClick() {
-        this.player.nextTrack();
     }
 
     componentDidMount() {
@@ -119,18 +107,17 @@ class Player extends Component {
 
     render() {
 
-        const {name, artist, albumName, albumArt} = this.state.currentlyPlaying;
+        const {name, artist, albumName, albumArt, paused} = this.state.currentlyPlaying;
         return (
             <>
                 {this.state.ready && (
-                    <>
-                        <MusicPage
-                            track={name}
-                            artist={artist}
-                            album={albumName}
-                            albumArt={albumArt}
-                            spotifyAPI={this.player}/>
-                    </>
+                    <MusicPage
+                        track={name}
+                        artist={artist}
+                        album={albumName}
+                        paused={paused}
+                        albumArt={albumArt}
+                        spotifyAPI={this.player}/>
                 )}
             </>
         );
