@@ -1,7 +1,7 @@
 import React from 'react';
 import Radium from "radium";
 
-const ControlButton = ({onClick, description, icon, size, key}) => {
+const ControlButton = ({onClick, description, icon, size}) => {
     const styles = {
         button: {
             backgroundColor: 'transparent',
@@ -20,7 +20,7 @@ const ControlButton = ({onClick, description, icon, size, key}) => {
     }
 
     return (
-        <button style={styles.button} onClick={onClick} key={key}>
+        <button style={styles.button} onClick={onClick}>
             <img style={styles.icon} src={icon} alt={description}/>
         </button>
     );

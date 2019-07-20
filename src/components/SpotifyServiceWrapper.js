@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MusicPage from "./MusicPage";
+import MusicPage from "./MusicPage/MusicPage";
 
 class Player extends Component {
     constructor(props) {
@@ -33,8 +33,8 @@ class Player extends Component {
                 },
             });
 
+            window.Spotify.Player.prototype.playTrack = this.playTrack;
             this.createEventHandlers();
-
             this.player.connect();
         }
     }
@@ -56,7 +56,7 @@ class Player extends Component {
 
     playTrack(spotifyURI) {
         const {deviceId, token} = this.state;
-        fetch("https://api.spotify.com/v1/me/player", {
+        fetch("https://api.spotify.com/v1/me/player/play", {
             method: "PUT",
             headers: {
                 authorization: `Bearer ${token}`,
@@ -64,8 +64,7 @@ class Player extends Component {
             },
             body: JSON.stringify({
                 device_ids: [deviceId],
-                play: true,
-                uris: [spotifyURI]
+                context_uri: spotifyURI
             }),
         });
     }

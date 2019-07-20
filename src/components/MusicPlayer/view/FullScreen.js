@@ -85,7 +85,6 @@ const FullScreen = ({artist, albumArt, track, display, closeFullScreen, paused, 
 
 FullScreen.propTypes = {
     artist: PropTypes.string.isRequired,
-    albumArt: PropTypes.string.isRequired,
     track: PropTypes.string.isRequired,
     display: PropTypes.bool.isRequired,
     closeFullScreen: PropTypes.func.isRequired
