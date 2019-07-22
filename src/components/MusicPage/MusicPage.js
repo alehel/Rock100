@@ -6,7 +6,9 @@ const styles = {
     container: {
         flex: 1,
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        maxHeight: '100vh',
+        maxWidth: '100vw'
     },
 }
 

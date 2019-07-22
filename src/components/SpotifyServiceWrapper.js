@@ -21,6 +21,7 @@ class Player extends Component {
 
         this.playerCheckInterval = null;
         this.playTrack = this.playTrack.bind(this);
+        this.getAlbumCoverUrls = this.getAlbumCoverUrls.bind(this);
     }
 
     checkForPlayer() {
@@ -34,6 +35,7 @@ class Player extends Component {
             });
 
             window.Spotify.Player.prototype.playTrack = this.playTrack;
+            window.Spotify.Player.prototype.getAlbumCoverUrls = this.getAlbumCoverUrls;
             this.createEventHandlers();
             this.player.connect();
         }
@@ -49,7 +51,7 @@ class Player extends Component {
             },
             body: JSON.stringify({
                 device_ids: [deviceId],
-                play: true,
+                play: false,
             }),
         });
     }
@@ -64,8 +66,31 @@ class Player extends Component {
             },
             body: JSON.stringify({
                 device_ids: [deviceId],
-                context_uri: spotifyURI
+                context_uri: `spotify:album:${spotifyURI}`
             }),
+        });
+    }
+
+    getAlbumCoverUrls(spotifyURI) {
+        const {token} = this.state;
+
+        return new Promise(function(resolve, reject) {
+            fetch(`https://api.spotify.com/v1/albums/${spotifyURI}`, {
+                method: "GET",
+                headers: {
+                    authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+            }).then(result => {
+                if(result.status === 200) {
+                    result.json().then(data => {
+                        console.log(data);
+                        resolve(data.images);
+                    })
+                } else {
+                    reject([]);
+                }
+            })
         });
     }
 
