@@ -3,8 +3,7 @@ import previousIcon from '../assets/previous.svg';
 import playIcon from '../assets/play.svg';
 import pausedIcon from '../assets/pause.svg'
 import nextIcon from '../assets/next.svg';
-import Radium from "radium";
-import ControlButton from "./ControlButton";
+import ControlButton from "../../ControlButton/ControlButton";
 
 const Controls = ({spotifyAPI, size, paused}) => {
     const buttonSizePrimary = parseInt(size) + "px";
@@ -34,4 +33,4 @@ const Controls = ({spotifyAPI, size, paused}) => {
     );
 };
 
-export default Radium(Controls);
+export default Controls;
