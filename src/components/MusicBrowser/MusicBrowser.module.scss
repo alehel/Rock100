@@ -1,0 +1,19 @@
+.musicBrowserContainer {
+  flex: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 1rem;
+  background-color: #5d636c;
+
+  .title {
+    font-size: 3rem;
+    color: white;
+    padding-left: 1rem;
+  }
+
+  .covers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}

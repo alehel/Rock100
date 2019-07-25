@@ -1,0 +1,29 @@
+$container-width: 200px;
+$textColor: white;
+
+.container {
+  width: $container-width;
+  padding: 0;
+  margin: 1.2rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.albumArt {
+  width: 100%;
+  height: $container-width;
+}
+
+.albumDetails {
+  text-align: center;
+
+  div {
+    color: $textColor;
+    margin-top: 0.5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}

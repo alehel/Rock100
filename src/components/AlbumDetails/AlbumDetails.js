@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import AlbumArt from "../../AlbumArt/AlbumArt";
+import AlbumArt from "../AlbumArt/AlbumArt";
 import * as PropTypes from "prop-types";
-import '../style/style.scss';
+import {container, albumArt, albumDetails} from './AlbumDetails.module.scss';
 
-class Album extends Component {
+class AlbumDetails extends Component {
     constructor(props) {
         super(props);
 
@@ -28,20 +28,20 @@ class Album extends Component {
         const {artist, title, uri, player} = this.props;
 
         return (
-            <div className="album" onClick={() => player.playTrack(uri)}>
-                <div className="album-art">
+            <div className={container} onClick={() => player.playTrack(uri)}>
+                <div className={albumArt}>
                     <AlbumArt src={this.state.cover}/>
                 </div>
-                <div className="album-details">
-                    <div className="album-details-text">{artist}</div>
-                    <div className="album-details-text">{title}</div>
+                <div className={albumDetails}>
+                    <div>{artist}</div>
+                    <div>{title}</div>
                 </div>
             </div>
         );
     }
 }
 
-Album.propTypes = {
+AlbumDetails.propTypes = {
     artist: PropTypes.any,
     title: PropTypes.any,
     uri: PropTypes.any,
@@ -49,4 +49,4 @@ Album.propTypes = {
     player: PropTypes.any
 }
 
-export default Album;
+export default AlbumDetails;

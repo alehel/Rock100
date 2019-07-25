@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import MusicPlayer from "../MusicPlayer";
-import MusicBrowser from "../MusicBrowser";
+import MusicBrowser from "../MusicBrowser/MusicBrowser";
 
 const styles = {
     container: {

@@ -1,15 +1,15 @@
 import React from 'react';
 import albumList from "../../Albums";
-import Album from "./view/Album";
-import './style/style.scss';
+import AlbumDetails from "../AlbumDetails/AlbumDetails";
+import {musicBrowserContainer, title, covers} from './MusicBrowser.module.scss';
 
 const MusicBrowser = ({spotifyAPI}) => {
     return (
-        <div className="music-browser-container">
-            <h1 className="title">Rock 100</h1>
-            <div className="covers">
+        <div className={musicBrowserContainer}>
+            <h1 className={title}>Rock 100</h1>
+            <div className={covers}>
                 {albumList.map(album => {
-                    return <Album
+                    return <AlbumDetails
                         key={album.listPosition}
                         artist={album.artist}
                         title={album.album}
