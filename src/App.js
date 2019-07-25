@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleRoot} from 'radium';
-import WelcomePage from "./components/WelcomePage";
+import WelcomePage from "./components/WelcomePage/WelcomePage";
 import SpotifyServiceWrapper from "./components/SpotifyServiceWrapper";
 import LoginError from "./components/LoginError";
 
