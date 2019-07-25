@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MusicPlayer from "../MusicPlayer";
+import MusicPlayer from "../MusicPlayer/MusicPlayer";
 import MusicBrowser from "../MusicBrowser/MusicBrowser";
 import {container} from './MusicPage.module.scss';
 

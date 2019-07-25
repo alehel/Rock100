@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {THEME_PRIMARY_COLOR} from "../../../variables";
-import closeIcon from '../assets/close.svg';
+import closeIcon from '../../MusicControls/assets/close.svg';
 import Radium from "radium";
 import AlbumArt from "../../AlbumArt/AlbumArt";
-import Controls from "./Controls";
+import MusicControls from "../../MusicControls/MusicControls";
 
 const FullScreen = ({artist, albumArt, track, display, closeFullScreen, paused, spotifyAPI}) => {
     const styles = {
@@ -75,7 +75,7 @@ const FullScreen = ({artist, albumArt, track, display, closeFullScreen, paused, 
                 <div style={styles.artistName}>{artist}</div>
             </div>
             <div style={styles.controls}>
-                <Controls size={80} paused={paused} spotifyAPI={spotifyAPI}/>
+                <MusicControls size={80} paused={paused} spotifyAPI={spotifyAPI}/>
             </div>
 
 

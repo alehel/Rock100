@@ -1,10 +1,10 @@
 import React from 'react';
-import expandIcon from '../assets/expand.svg';
+import expandIcon from '../../MusicControls/assets/expand.svg';
 import PropTypes from 'prop-types';
 import Radium from "radium";
-import Controls from "./Controls";
 import AlbumArt from "../../AlbumArt/AlbumArt";
 import ControlButton from "../../ControlButton/ControlButton";
+import MusicControls from "../../MusicControls/MusicControls";
 
 const Bar = ({artist, album, albumArt, track, openFullScreen, paused, spotifyAPI}) => {
     const barSize = '120px';
@@ -65,7 +65,7 @@ const Bar = ({artist, album, albumArt, track, openFullScreen, paused, spotifyAPI
                 <div style={styles.songDetailsText}>{track}</div>
             </div>
             <div style={styles.fill}/>
-            <Controls
+            <MusicControls
                 spotifyAPI={spotifyAPI}
                 paused={paused}
                 size={50}/>
