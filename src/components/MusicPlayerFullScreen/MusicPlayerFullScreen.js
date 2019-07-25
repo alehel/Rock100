@@ -5,7 +5,7 @@ import MusicControls from "../MusicControls/MusicControls";
 import PropTypes from "prop-types";
 import {container, text, trackName, artistName, closeIconStyle, controls} from './MusicPlayerFullScreen.module.scss';
 
-const MusicPlayerFullScreen = ({artist, albumArt, track, closeFullScreen, paused, spotifyAPI}) => {
+const MusicPlayerFullScreen = ({artist, albumArt, track, closeFullScreen, paused, musicService}) => {
 
     return (
         <div className={container}>
@@ -17,7 +17,7 @@ const MusicPlayerFullScreen = ({artist, albumArt, track, closeFullScreen, paused
                 <div className={artistName}>{artist}</div>
             </div>
             <div className={controls}>
-                <MusicControls size={80} paused={paused} spotifyAPI={spotifyAPI}/>
+                <MusicControls size={80} paused={paused} musicService={musicService}/>
             </div>
         </div>
     );
