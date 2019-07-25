@@ -42,11 +42,10 @@ class AlbumDetails extends Component {
 }
 
 AlbumDetails.propTypes = {
-  artist: PropTypes.string,
-  title: PropTypes.string,
-  uri: PropTypes.any,
-  cover: PropTypes.any,
-  musicService: PropTypes.any
+  artist: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  uri: PropTypes.string.isRequired,
+  musicService: PropTypes.object.isRequired
 };
 
 export default AlbumDetails;

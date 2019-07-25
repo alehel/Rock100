@@ -28,7 +28,7 @@ const albumList = [
     "listPosition": 97
   },
   {
-    "aritst": "Soundgarden",
+    "artist": "Soundgarden",
     "album": "Superunknown",
     "year": 1994,
     "uri": "4K8bxkPDa5HENw0TK7WxJh",
