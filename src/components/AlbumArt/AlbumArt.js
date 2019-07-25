@@ -3,7 +3,7 @@ import noMusic from '../../assets/icons/no_music_album_art.svg';
 import {container, albumArt} from './AlbumArt.module.scss';
 import PropTypes from "prop-types";
 
-function AlbumArt({src, style}) {
+function AlbumArt({src}) {
     const comp = src === undefined ? <NoAlbum/> : <ActiveAlbum src={src} />
 
     return <div className={container}>{comp}</div>;
@@ -25,5 +25,9 @@ function NoAlbum() {
 AlbumArt.propTypes = {
     src: PropTypes.string
 };
+
+AlbumArt.defaultProps = {
+    src: undefined
+}
 
 export default AlbumArt;
