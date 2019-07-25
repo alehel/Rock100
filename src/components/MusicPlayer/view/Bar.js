@@ -1,10 +1,10 @@
 import React from 'react';
 import expandIcon from '../assets/expand.svg';
-import AlbumArt from './../../AlbumArt'
 import PropTypes from 'prop-types';
 import Radium from "radium";
 import ControlButton from "./ControlButton";
 import Controls from "./Controls";
+import AlbumArt from "../../AlbumArt/AlbumArt";
 
 const Bar = ({artist, album, albumArt, track, openFullScreen, paused, spotifyAPI}) => {
     const barSize = '120px';

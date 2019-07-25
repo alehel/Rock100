@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import AlbumArt from "../../AlbumArt";
+import AlbumArt from "../../AlbumArt/AlbumArt";
 import * as PropTypes from "prop-types";
+import '../style/style.scss';
 
 class Album extends Component {
     constructor(props) {
@@ -12,8 +13,10 @@ class Album extends Component {
     }
 
     componentDidMount() {
+        const {player, uri} = this.props;
+
         if(this.state.cover === undefined) {
-            this.props.player.getAlbumCoverUrls(this.props.uri).then(result => {
+            player.getAlbumCoverUrls(uri).then(result => {
                 this.setState({
                     cover: result[1].url,
                 })
@@ -22,17 +25,16 @@ class Album extends Component {
     }
 
     render() {
-        console.log(this.state.cover)
-        let {artist, title, uri, player} = this.props;
+        const {artist, title, uri, player} = this.props;
 
         return (
-            <div style={styles.container} onClick={() => player.playTrack(uri)}>
-                <div style={styles.albumArt}>
+            <div className="album" onClick={() => player.playTrack(uri)}>
+                <div className="album-art">
                     <AlbumArt src={this.state.cover}/>
                 </div>
-                <div style={styles.albumDetails}>
-                    {artist}<br/>
-                    {title}
+                <div className="album-details">
+                    <div className="album-details-text">{artist}</div>
+                    <div className="album-details-text">{title}</div>
                 </div>
             </div>
         );
@@ -45,25 +47,6 @@ Album.propTypes = {
     uri: PropTypes.any,
     cover: PropTypes.any,
     player: PropTypes.any
-}
-
-const containerWidth = '200px';
-const containerHeight = '280px';
-
-const styles = {
-    container: {
-        width: containerWidth,
-        height: containerHeight,
-        padding: 0,
-        margin: '1rem',
-    },
-    albumArt: {
-        width: '100%',
-        height: containerWidth
-    },
-    albumDetails: {
-
-    }
 }
 
 export default Album;

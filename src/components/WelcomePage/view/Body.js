@@ -2,7 +2,7 @@ import React from 'react';
 import albumCompilationImage from "../assets/album_compilation.png";
 import backgroundImage from "../assets/welcome.jpg";
 import Radium from "radium";
-import LoginButton from "../../LoginButton";
+import LoginButton from "../../LoginButton/LoginButton";
 
 
 const Body = () => {

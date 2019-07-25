@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {THEME_PRIMARY_COLOR} from "../../../global_constants/style";
 import closeIcon from '../assets/close.svg';
 import Radium from "radium";
-import AlbumArt from "../../AlbumArt";
+import AlbumArt from "../../AlbumArt/AlbumArt";
 import Controls from "./Controls";
 
 const FullScreen = ({artist, albumArt, track, display, closeFullScreen, paused, spotifyAPI}) => {

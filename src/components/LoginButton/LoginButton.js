@@ -1,15 +1,15 @@
 import React from 'react';
-import Radium from "radium";
+import {container, link} from './LoginButton.module.scss';
 
-import {clientId} from "../global_constants/secrets";
+import {clientId} from "../../global_constants/secrets";
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
 export const redirectUri = "http://localhost:3000/callback";
 export const scopes = ["streaming", "user-read-birthdate", "user-read-email", "user-read-private", "user-modify-playback-state"];
 
 function LoginButton() {
     return (
-        <div style={styles.linkContainer}>
-            <a style={styles.link}
+        <div className={container}>
+            <a className={link}
                href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`}>
                 Login using Spotify
             </a>
@@ -17,22 +17,4 @@ function LoginButton() {
     );
 }
 
-const styles = {
-    linkContainer: {
-        marginTop: '50px',
-    },
-
-    link: {
-        borderRadius: '15px',
-        padding: '10px 25px',
-        backgroundColor: '#1DB954',
-        textDecoration: 'none',
-        color: 'white',
-
-        ':hover': {
-            backgroundColor: '#1ccb50',
-        }
-    },
-};
-
-export default Radium(LoginButton);
+export default LoginButton;

@@ -74,7 +74,7 @@ class Player extends Component {
     getAlbumCoverUrls(spotifyURI) {
         const {token} = this.state;
 
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             fetch(`https://api.spotify.com/v1/albums/${spotifyURI}`, {
                 method: "GET",
                 headers: {
@@ -82,9 +82,8 @@ class Player extends Component {
                     "Content-Type": "application/json",
                 },
             }).then(result => {
-                if(result.status === 200) {
+                if (result.status === 200) {
                     result.json().then(data => {
-                        console.log(data);
                         resolve(data.images);
                     })
                 } else {
@@ -130,15 +129,16 @@ class Player extends Component {
     onPlayerStateChanged(state) {
         const track = state.track_window.current_track;
 
-        this.setState({
-            currentlyPlaying: {
-                name: track.name,
-                artist: track.artists[0].name,
-                albumName: track.album.name,
-                albumArt: track.album.images[0].url,
-                paused: state.paused,
-            }
+        const currentlyPlaying = {
+            name: track.name,
+            artist: track.artists[0].name,
+            albumName: track.album.name,
+            albumArt: track.album.images[0].url,
+            paused: state.paused,
+        };
 
+        this.setState({
+            currentlyPlaying,
         })
     }
 

@@ -1,0 +1,15 @@
+.container {
+  margin-top: 3rem;
+
+  .link {
+    border-radius: 15px;
+    padding: 10px 25px;
+    background-color: #1DB954;
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+      background-color: #1ccb50;
+    }
+  }
+}
