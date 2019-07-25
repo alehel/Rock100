@@ -6,13 +6,11 @@ class Player extends Component {
     super(props);
 
     this.state = {
-      currentlyPlaying: {
-        name: "",
-        artist: "",
-        albumName: "",
-        albumArt: undefined,
-        paused: true
-      },
+      name: "",
+      artist: "",
+      albumName: "",
+      albumArt: "",
+      paused: true,
       deviceId: "",
       ready: false,
       transfered: false,
@@ -129,16 +127,12 @@ class Player extends Component {
   onPlayerStateChanged(state) {
     const track = state.track_window.current_track;
 
-    const currentlyPlaying = {
+    this.setState({
       name: track.name,
       artist: track.artists[0].name,
       albumName: track.album.name,
       albumArt: track.album.images[0].url,
       paused: state.paused,
-    };
-
-    this.setState({
-      currentlyPlaying,
     })
   }
 
@@ -147,8 +141,8 @@ class Player extends Component {
   }
 
   render() {
-
-    const {name, artist, albumName, albumArt, paused} = this.state.currentlyPlaying;
+    const {name, artist, albumName, albumArt, paused} = this.state;
+    
     return (
       <>
         {this.state.ready && (
@@ -158,7 +152,7 @@ class Player extends Component {
             album={albumName}
             paused={paused}
             albumArt={albumArt}
-            spotifyAPI={this.player}/>
+            musicService={this.player}/>
         )}
       </>
     );

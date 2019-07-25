@@ -8,7 +8,7 @@ class MusicPage extends Component {
     render() {
         return (
             <div className={container}>
-                <MusicBrowser spotifyAPI = {this.props.spotifyAPI} />
+                <MusicBrowser musicService = {this.props.musicService} />
                 <MusicPlayer {...this.props}/>
             </div>
         );

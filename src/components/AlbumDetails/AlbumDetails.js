@@ -13,10 +13,10 @@ class AlbumDetails extends Component {
   }
 
   componentDidMount() {
-    const {player, uri} = this.props;
+    const {musicService, uri} = this.props;
 
     if (this.state.cover === undefined) {
-      player.getAlbumCoverUrls(uri).then(result => {
+      musicService.getAlbumCoverUrls(uri).then(result => {
         this.setState({
           cover: result[1].url,
         })
@@ -25,10 +25,10 @@ class AlbumDetails extends Component {
   }
 
   render() {
-    const {artist, title, uri, player} = this.props;
+    const {artist, title, uri, musicService} = this.props;
 
     return (
-      <div className={container} onClick={() => player.playTrack(uri)}>
+      <div className={container} onClick={() => musicService.playTrack(uri)}>
         <div className={albumArt}>
           <AlbumArt src={this.state.cover}/>
         </div>
@@ -46,7 +46,7 @@ AlbumDetails.propTypes = {
   title: PropTypes.string,
   uri: PropTypes.any,
   cover: PropTypes.any,
-  player: PropTypes.any
+  musicService: PropTypes.any
 };
 
 export default AlbumDetails;

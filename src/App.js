@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {StyleRoot} from 'radium';
 import WelcomePage from "./components/WelcomePage/WelcomePage";
 import SpotifyServiceWrapper from "./components/SpotifyServiceWrapper";
 import LoginError from "./components/LoginError";
@@ -44,13 +43,11 @@ class App extends Component {
     const token = this.state.token;
 
     return (
-      <StyleRoot>
-        <div style={style}>
-          {this.loginError() ? <LoginError/> :
-            !token ? <WelcomePage/> : <SpotifyServiceWrapper token={token}/>
-          }
-        </div>
-      </StyleRoot>
+      <div style={style}>
+        {this.loginError() ? <LoginError/> :
+          !token ? <WelcomePage/> : <SpotifyServiceWrapper token={token}/>
+        }
+      </div>
     );
   }
 }
