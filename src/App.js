@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import WelcomePage from "./components/WelcomePage/WelcomePage";
-import SpotifyServiceWrapper from "./components/SpotifyServiceWrapper";
-import LoginError from "./components/LoginError";
+import WelcomePage from './components/WelcomePage/WelcomePage';
+import SpotifyServiceWrapper from './components/SpotifyServiceWrapper';
+import LoginError from './components/LoginError';
+import {container} from './App.module.scss';
 
 class App extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class App extends Component {
     const token = this.state.token;
 
     return (
-      <div style={style}>
+      <div className={container}>
         {this.loginError() ? <LoginError/> :
           !token ? <WelcomePage/> : <SpotifyServiceWrapper token={token}/>
         }
@@ -51,10 +52,5 @@ class App extends Component {
     );
   }
 }
-
-const style = {
-  display: 'flex',
-  minHeight: '100vh'
-};
 
 export default App;
