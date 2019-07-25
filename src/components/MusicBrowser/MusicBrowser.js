@@ -1,5 +1,5 @@
 import React from 'react';
-import albumList from "../../Albums";
+import albumList from "../../Top100List";
 import AlbumDetails from "../AlbumDetails/AlbumDetails";
 import {musicBrowserContainer, title, covers} from './MusicBrowser.module.scss';
 

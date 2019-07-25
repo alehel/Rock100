@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {THEME_PRIMARY_COLOR} from "../../../global_constants/style";
+import {THEME_PRIMARY_COLOR} from "../../../variables";
 import closeIcon from '../assets/close.svg';
 import Radium from "radium";
 import AlbumArt from "../../AlbumArt/AlbumArt";
