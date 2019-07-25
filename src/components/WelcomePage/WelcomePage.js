@@ -9,7 +9,7 @@ import {
     text,
     title
 } from './WelcomePage.module.scss';
-import albumCompilationImage from "./assets/album_compilation.png";
+import albumCompilationImage from "../../assets/images/album_collage.png";
 import LoginButton from "../LoginButton/LoginButton";
 
 function WelcomePage() {

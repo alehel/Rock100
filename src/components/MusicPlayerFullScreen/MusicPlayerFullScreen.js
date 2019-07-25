@@ -1,5 +1,5 @@
 import React from 'react';
-import closeIcon from './assets/close.svg';
+import closeIcon from '../../assets/icons/close.svg';
 import AlbumArt from "../AlbumArt/AlbumArt";
 import MusicControls from "../MusicControls/MusicControls";
 import PropTypes from "prop-types";

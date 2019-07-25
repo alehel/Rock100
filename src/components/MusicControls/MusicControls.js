@@ -1,8 +1,8 @@
 import React from 'react';
-import previousIcon from './assets/previous.svg';
-import playIcon from './assets/play.svg';
-import pausedIcon from './assets/pause.svg'
-import nextIcon from './assets/next.svg';
+import previousIcon from '../../assets/icons/previous_track.svg';
+import playIcon from '../../assets/icons/play_track.svg';
+import pausedIcon from '../../assets/icons/pause_track.svg'
+import nextIcon from '../../assets/icons/next_track.svg';
 import ControlButton from "../ControlButton/ControlButton";
 
 const MusicControls = ({spotifyAPI, size, paused}) => {

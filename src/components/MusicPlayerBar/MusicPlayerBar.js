@@ -1,5 +1,5 @@
 import React from 'react';
-import expandIcon from './assets/expand.svg';
+import expandIcon from '../../assets/icons/expand.svg';
 import PropTypes from 'prop-types';
 import {container, fill, songDetails} from './MusicPlayerBar.module.scss';
 import AlbumArt from "../AlbumArt/AlbumArt";
