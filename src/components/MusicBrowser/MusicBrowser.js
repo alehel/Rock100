@@ -2,6 +2,7 @@ import React from 'react';
 import albumList from "../../Top100List";
 import AlbumDetails from "../AlbumDetails/AlbumDetails";
 import {covers, musicBrowserContainer, title} from './MusicBrowser.module.scss';
+import propTypes from 'prop-types';
 
 const MusicBrowser = ({musicService}) => {
   return (
@@ -20,5 +21,9 @@ const MusicBrowser = ({musicService}) => {
     </div>
   );
 };
+
+MusicBrowser.propTypes = {
+  musicService: propTypes.object.isRequired,
+}
 
 export default MusicBrowser;

@@ -27,7 +27,6 @@ const MusicPlayerFullScreen = ({artist, albumArt, track, closeFullScreen, paused
 MusicPlayerFullScreen.propTypes = {
     artist: PropTypes.string.isRequired,
     track: PropTypes.string.isRequired,
-    display: PropTypes.bool.isRequired,
     closeFullScreen: PropTypes.func.isRequired
 };
 

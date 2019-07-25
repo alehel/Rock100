@@ -35,4 +35,8 @@ MusicPlayer.propTypes = {
     track: PropTypes.string.isRequired,
 };
 
+MusicPlayer.defaultProps = {
+    albumArt: undefined,
+}
+
 export default MusicPlayer;
