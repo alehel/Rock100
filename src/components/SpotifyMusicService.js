@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import MusicPage from "./MusicPage/MusicPage";
+import propTypes from 'prop-types';
 
-class Player extends Component {
+class SpotifyMusicService extends Component {
   constructor(props) {
     super(props);
 
@@ -159,4 +160,8 @@ class Player extends Component {
   }
 }
 
-export default Player;
+SpotifyMusicService.propTypes = {
+  token: propTypes.string.isRequired,
+}
+
+export default SpotifyMusicService;

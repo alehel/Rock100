@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import WelcomePage from './components/WelcomePage/WelcomePage';
-import SpotifyServiceWrapper from './components/SpotifyServiceWrapper';
+import SpotifyServiceWrapper from './components/SpotifyMusicService';
 import LoginError from './components/LoginError';
 import {container} from './App.module.scss';
 
