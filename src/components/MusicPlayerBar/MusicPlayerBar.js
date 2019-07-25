@@ -37,6 +37,13 @@ MusicPlayerBar.propTypes = {
   album: PropTypes.string.isRequired,
   albumArt: PropTypes.string,
   track: PropTypes.string.isRequired,
+  openFullScreen: PropTypes.func.isRequired,
+  paused: PropTypes.bool.isRequired,
+  musicService: PropTypes.object.isRequired
 };
+
+MusicPlayerBar.defaultProps = {
+  albumArt: undefined,
+}
 
 export default MusicPlayerBar;

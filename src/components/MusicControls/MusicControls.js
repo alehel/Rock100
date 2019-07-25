@@ -4,6 +4,7 @@ import playIcon from '../../assets/icons/play_track.svg';
 import pausedIcon from '../../assets/icons/pause_track.svg'
 import nextIcon from '../../assets/icons/next_track.svg';
 import ControlButton from "../ControlButton/ControlButton";
+import propTypes from 'prop-types';
 
 const MusicControls = ({musicService, size, paused}) => {
     const buttonSizePrimary = parseInt(size) + "px";
@@ -32,5 +33,11 @@ const MusicControls = ({musicService, size, paused}) => {
         </>
     );
 };
+
+MusicControls.propTypes = {
+  musicService: propTypes.object.isRequired,
+  size: propTypes.number.isRequired,
+  paused: propTypes.bool.isRequired,
+}
 
 export default MusicControls;
