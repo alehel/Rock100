@@ -22,7 +22,8 @@ const FullScreen = ({artist, albumArt, track, display, closeFullScreen, paused, 
             display: !display ? 'none' : 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            flexDirection: 'column'
+            flexDirection: 'column',
+            padding: '4rem'
         },
 
         albumArt: {

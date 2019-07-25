@@ -1,0 +1,13 @@
+.button {
+  background-color: transparent;
+  border: none;
+  margin:0 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.icon {
+  overflow: hidden;
+}
