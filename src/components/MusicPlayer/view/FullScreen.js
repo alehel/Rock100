@@ -68,7 +68,7 @@ const FullScreen = ({artist, albumArt, track, display, closeFullScreen, paused, 
     return (
         <div style={styles.container}>
             <img src={closeIcon} onClick={closeFullScreen} alt="Close full screen" style={styles.closeIcon}/>
-            <AlbumArt src={albumArt} style={styles.albumArt}/>
+            <AlbumArt src={albumArt}/>
 
             <div style={styles.text}>
                 <div style={styles.trackName}>{track}</div>

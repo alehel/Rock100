@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import MusicBar from "./view/Bar";
 import FullScreen from './view/FullScreen';
 import PropTypes from "prop-types";
+import MusicPlayerBar from "../MusicPlayerBar/MusicPlayerBar";
 
 class MusicPlayer extends Component {
     constructor(props) {
@@ -23,7 +23,7 @@ class MusicPlayer extends Component {
         if(this.state.fullScreen) {
             return <FullScreen {...this.props} display={this.state.fullScreen} closeFullScreen={this.toggleFullScreen}/>
         } else {
-            return <MusicBar {...this.props} display={this.state.fullScreen} openFullScreen={this.toggleFullScreen}/>
+            return <MusicPlayerBar {...this.props} display={this.state.fullScreen} openFullScreen={this.toggleFullScreen}/>
         }
     }
 }

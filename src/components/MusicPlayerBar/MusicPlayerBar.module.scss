@@ -1,0 +1,34 @@
+$barsize: 120px;
+$breakpoint: 800px;
+
+.container {
+  height: $barsize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+
+.fill {
+  flex: 1;
+}
+
+.songDetails {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.2rem 1rem;
+  max-width: 320px;
+
+  div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media only screen and (max-width: $breakpoint) {
+    display: none;
+  }
+}

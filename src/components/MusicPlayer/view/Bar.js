@@ -1,5 +1,5 @@
 import React from 'react';
-import expandIcon from '../../MusicControls/assets/expand.svg';
+import expandIcon from '../../MusicPlayerBar/assets/expand.svg';
 import PropTypes from 'prop-types';
 import Radium from "radium";
 import AlbumArt from "../../AlbumArt/AlbumArt";
