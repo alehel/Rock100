@@ -3,16 +3,16 @@ import noMusic from '../../assets/icons/no_music_album_art.svg';
 import {container, albumArt} from './AlbumArt.module.scss';
 import PropTypes from "prop-types";
 
-function AlbumArt({src}) {
-    const comp = src === undefined ? <NoAlbum/> : <ActiveAlbum src={src} />
+function AlbumArt({src, title}) {
+    const comp = src === undefined ? <NoAlbum/> : <ActiveAlbum src={src} title={title}/>
 
     return <div className={container}>{comp}</div>;
 }
 
 
-function ActiveAlbum({src}) {
+function ActiveAlbum({src, title}) {
     return (
-        <img src={src} alt="" className={albumArt}/>
+        <img src={src} alt={"cover for: " + title} className={albumArt}/>
     );
 }
 
@@ -23,11 +23,13 @@ function NoAlbum() {
 }
 
 AlbumArt.propTypes = {
-    src: PropTypes.string
+    src: PropTypes.string,
+    title: PropTypes.string
 };
 
 AlbumArt.defaultProps = {
-    src: undefined
+    src: undefined,
+    title: ""
 }
 
 export default AlbumArt;

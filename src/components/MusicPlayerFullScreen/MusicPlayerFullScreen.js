@@ -5,12 +5,12 @@ import MusicControls from "../MusicControls/MusicControls";
 import PropTypes from "prop-types";
 import {artistName, closeIconStyle, container, controls, text, trackName} from './MusicPlayerFullScreen.module.scss';
 
-const MusicPlayerFullScreen = ({artist, albumArt, track, closeFullScreen, paused, musicService}) => {
+const MusicPlayerFullScreen = ({artist, albumArt, album, track, closeFullScreen, paused, musicService}) => {
 
   return (
     <div className={container}>
       <img src={closeIcon} onClick={closeFullScreen} alt="Close full screen" className={closeIconStyle}/>
-      <AlbumArt src={albumArt}/>
+      <AlbumArt src={albumArt} title={album}/>
 
       <div className={text}>
         <div className={trackName}>{track}</div>

@@ -11,7 +11,7 @@ const MusicPlayerBar = ({artist, album, albumArt, track, openFullScreen, paused,
 
   return (
     <div className={container}>
-      <AlbumArt src={albumArt}/>
+      <AlbumArt src={albumArt} title={album}/>
       <div className={songDetails}>
         <div>{artist}</div>
         <div>{album}</div>

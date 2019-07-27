@@ -28,15 +28,15 @@ class AlbumDetails extends Component {
     const {artist, title, uri, musicService} = this.props;
 
     return (
-      <div className={container} onClick={() => musicService.playTrack(uri)}>
+      <button className={container} onClick={() => musicService.playTrack(uri)}>
         <div className={albumArt}>
-          <AlbumArt src={this.state.cover}/>
+          <AlbumArt src={this.state.cover} title={title}/>
         </div>
         <div className={albumDetails}>
           <div>{artist}</div>
           <div>{title}</div>
         </div>
-      </div>
+      </button>
     );
   }
 }

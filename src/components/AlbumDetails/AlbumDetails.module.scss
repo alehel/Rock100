@@ -6,9 +6,12 @@ $textColor: white;
   padding: 0;
   margin: 1.2rem;
 
-  &:hover {
-    cursor: pointer;
-  }
+  // Remove Button Styling
+  background: none;
+  color: inherit;
+  border: none;
+  font: inherit;
+  cursor: pointer;
 }
 
 .albumArt {
