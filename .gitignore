@@ -14,9 +14,6 @@
 # production
 /build
 
-# secrets
-/src/global_constants/secrets.js
-
 # misc
 .DS_Store
 .env.local
