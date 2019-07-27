@@ -1,79 +1,15 @@
-
 # Rock 100
 ## About
-Rock 100 is a web-app created using React and the Spotify API. It allows you to browse and listen to music from the "Top 100 Rock Albums" list created by Classic Rock Magazine. Please not that I am in no way affiliated with Spotify or Classic Rock Magazine.
+Rock 100 is a webapp created using React and the Spotify API. It allows you to browse and listen to music from the "Top 100 Rock Albums" list created by Classic Rock Magazine. Please not that I am in no way affiliated with Spotify or Classic Rock Magazine.
 
-Thanks to [Joe Karlsson](https://www.joekarlsson.com/) for his [tutorial](https://levelup.gitconnected.com/how-to-build-a-spotify-player-with-react-in-15-minutes-7e01991bc4b6) on using the Spotify API which helped me get started on this project. 
+Bellow is the welcome screen for the app.
+![Projects landing page](project_images/welcome.png)
+
+Once logged in the user is presented with the Top 100 albums.
+![Browsing the Top 100 rock albums](project_images/browse.png)
+
+This is the full screen view.
+![Full screen view](project_images/fullscreen.png)
 
 ## Spotify Client ID
-The web-app requires a spotify client id to run. The key I use is, for obvious reasons, not included in this repo. To run the code, you must create a file called *secrets.js* in the *global_constants* folder of the project. Within this file you must export a constant called *clientId*. Store your Spotify client id inn this constant, and the project should run.
-
-# React generated README
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The web-app requires a spotify client id to run. The key I use is, for obvious reasons, not included in this repo. To run the code, you must edit a file called *secrets.js*.
