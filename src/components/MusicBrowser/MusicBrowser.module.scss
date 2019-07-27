@@ -19,3 +19,8 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.covers::after {
+  content: "";
+  flex: auto;
+}
